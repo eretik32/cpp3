@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Picture
  *
  * @ORM\Table(name="image")
- * @ORM\Entity(repositoryClass="CoreBundle\Repository\PictureRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\ImageRepository")
  */
 class Image
 {
@@ -55,19 +55,19 @@ class Image
     /**
      * @var Product|null
      *
-     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Product")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Product", inversedBy = "images")
      */
 
-    private $productPicture;
+    private $product;
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\TypePicture" , inversedBy = "TypePicture")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\TypeImage" , inversedBy = "TypeImage")
      *
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
 
-    private $type;
+    private $image;
 
 
     /**
@@ -177,50 +177,50 @@ class Image
     }
 
     /**
-     * Set productPicture
+     * Set product
      *
-     * @param \CoreBundle\Entity\Product $productPicture
+     * @param \CoreBundle\Entity\Product $product
      *
      * @return Image
      */
-    public function setProductPicture(\CoreBundle\Entity\Product $productPicture = null)
+    public function setProduct(\CoreBundle\Entity\Product $product = null)
     {
-        $this->productPicture = $productPicture;
+        $this->product = $product;
 
         return $this;
     }
 
     /**
-     * Get productPicture
+     * Get product
      *
      * @return \CoreBundle\Entity\Product
      */
-    public function getProductPicture()
+    public function getProduct()
     {
-        return $this->productPicture;
+        return $this->product;
     }
 
     /**
-     * Set type
+     * Set image
      *
-     * @param \CoreBundle\Entity\TypePicture $type
+     * @param \CoreBundle\Entity\TypeImage $image
      *
      * @return Image
      */
-    public function setType(\CoreBundle\Entity\TypePicture $type = null)
+    public function setImage(\CoreBundle\Entity\TypeImage $image = null)
     {
-        $this->type = $type;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get image
      *
-     * @return \CoreBundle\Entity\TypePicture
+     * @return \CoreBundle\Entity\TypeImage
      */
-    public function getType()
+    public function getImage()
     {
-        return $this->type;
+        return $this->image;
     }
 }

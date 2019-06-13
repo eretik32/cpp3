@@ -40,19 +40,19 @@ class Product
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Image", mappedBy="productPicture")
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Image", mappedBy="product")
      *
      * @ORM\JoinColumn(name="picture_id", referencedColumnName="id")
      */
 
-    private $picture;
+    private $images;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->picture = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -114,36 +114,36 @@ class Product
     }
 
     /**
-     * Add picture
+     * Add image
      *
-     * @param \CoreBundle\Entity\Image $picture
+     * @param \CoreBundle\Entity\Image $image
      *
      * @return Product
      */
-    public function addPicture(\CoreBundle\Entity\Image $picture)
+    public function addImage(\CoreBundle\Entity\Image $image)
     {
-        $this->picture[] = $picture;
+        $this->images[] = $image;
 
         return $this;
     }
 
     /**
-     * Remove picture
+     * Remove image
      *
-     * @param \CoreBundle\Entity\Image $picture
+     * @param \CoreBundle\Entity\Image $image
      */
-    public function removePicture(\CoreBundle\Entity\Image $picture)
+    public function removeImage(\CoreBundle\Entity\Image $image)
     {
-        $this->picture->removeElement($picture);
+        $this->images->removeElement($image);
     }
 
     /**
-     * Get picture
+     * Get images
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPicture()
+    public function getImages()
     {
-        return $this->picture;
+        return $this->images;
     }
 }

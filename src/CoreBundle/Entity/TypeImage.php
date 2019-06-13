@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TypePicture
  *
- * @ORM\Table(name="type_picture")
- * @ORM\Entity(repositoryClass="CoreBundle\Repository\TypePictureRepository")
+ * @ORM\Table(name="type_image")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\TypeImageRepository")
  */
-class TypePicture
+class TypeImage
 {
     /**
      * @var int
@@ -31,18 +31,18 @@ class TypePicture
     /**
      * @var Image|null
      *
-     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Image", mappedBy="type")
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Image", mappedBy="image")
      *
      */
 
-    private $TypePicture;
+    private $TypeImage;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->TypePicture = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->TypeImage = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -60,7 +60,7 @@ class TypePicture
      *
      * @param string $title
      *
-     * @return TypePicture
+     * @return TypeImage
      */
     public function setTitle($title)
     {
@@ -80,36 +80,36 @@ class TypePicture
     }
 
     /**
-     * Add typePicture
+     * Add typeImage
      *
-     * @param \CoreBundle\Entity\Image $typePicture
+     * @param \CoreBundle\Entity\Image $typeImage
      *
-     * @return TypePicture
+     * @return TypeImage
      */
-    public function addTypePicture(\CoreBundle\Entity\Image $typePicture)
+    public function addTypeImage(\CoreBundle\Entity\Image $typeImage)
     {
-        $this->TypePicture[] = $typePicture;
+        $this->TypeImage[] = $typeImage;
 
         return $this;
     }
 
     /**
-     * Remove typePicture
+     * Remove typeImage
      *
-     * @param \CoreBundle\Entity\Image $typePicture
+     * @param \CoreBundle\Entity\Image $typeImage
      */
-    public function removeTypePicture(\CoreBundle\Entity\Image $typePicture)
+    public function removeTypeImage(\CoreBundle\Entity\Image $typeImage)
     {
-        $this->TypePicture->removeElement($typePicture);
+        $this->TypeImage->removeElement($typeImage);
     }
 
     /**
-     * Get typePicture
+     * Get typeImage
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTypePicture()
+    public function getTypeImage()
     {
-        return $this->TypePicture;
+        return $this->TypeImage;
     }
 }
