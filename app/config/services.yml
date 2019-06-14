@@ -33,3 +33,24 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    CoreBundle\:
+        resource: '../../src/CoreBundle/*'
+        exclude: '../../src/AppBundle/{Entity,Repository}'
+    #        --------------------------------------
+    AdminBundle\:
+        resource: '../../src/AdminBundle/*'
+        exclude: '../../src/AdminBundle/{Entity,Repository,Tests}'
+
+    AdminBundle\Controller\:
+        resource: '../../src/AdminBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    ApiBundle\:
+        resource: '../../src/ApiBundle/*'
+        exclude: '../../src/ApiBundle/{Entity,Repository,Tests}'
+
+    ApiBundle\Controller\:
+        resource: '../../src/ApiBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
