@@ -5,7 +5,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/CoreBundle" isTestSource="false" packagePrefix="CoreBundle\" />
       <sourceFolder url="file://$MODULE_DIR$/src/ApiBundle" isTestSource="false" packagePrefix="ApiBundle\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
-      <sourceFolder url="file://$MODULE_DIR$/src/AppBundle" isTestSource="false" packagePrefix="AppBundle\" />
       <sourceFolder url="file://$MODULE_DIR$/src/AdminBundle" isTestSource="false" packagePrefix="AdminBundle\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/migrations" />

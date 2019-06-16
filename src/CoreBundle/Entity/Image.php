@@ -5,7 +5,7 @@ namespace CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Picture
+ * Image
  *
  * @ORM\Table(name="image")
  * @ORM\Entity(repositoryClass="CoreBundle\Repository\ImageRepository")
