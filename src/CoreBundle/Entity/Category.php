@@ -19,14 +19,14 @@ class Category
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="category_title", type="string", length=255)
      */
-    private $title;
+    public $category_title;
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class Category
      *
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
-    private $product;
+    public $product;
 
     /**
      * Constructor
@@ -56,27 +56,27 @@ class Category
     }
 
     /**
-     * Set title
+     * Set category_title
      *
-     * @param string $title
+     * @param string $category_title
      *
      * @return Category
      */
-    public function setTitle($title)
+    public function setTitle($category_title)
     {
-        $this->title = $title;
+        $this->category_title = $category_title;
 
         return $this;
     }
 
     /**
-     * Get title
+     * Get category_title
      *
      * @return string
      */
     public function getTitle()
     {
-        return $this->title;
+        return $this->category_title;
     }
 
     /**
@@ -111,5 +111,29 @@ class Category
     public function getProduct()
     {
         return $this->product;
+    }
+
+    /**
+     * Set categoryTitle
+     *
+     * @param string $categoryTitle
+     *
+     * @return Category
+     */
+    public function setCategoryTitle($categoryTitle)
+    {
+        $this->category_title = $categoryTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryTitle
+     *
+     * @return string
+     */
+    public function getCategoryTitle()
+    {
+        return $this->category_title;
     }
 }

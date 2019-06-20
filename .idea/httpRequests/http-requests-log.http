@@ -1,0 +1,400 @@
+PUT http://127.0.0.1:8000/api/product/5?title=&category_id=
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035458.406.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=&category_id=2
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035446.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=fgdfgfdg&category_id=
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035434.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=fgdfgfdg&category_id=3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035424.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=fgdfgfdg&category_id=3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035356.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=fgdfgfdg&category_id=4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035345.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=fgdfgfdg
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035331.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035316.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035120.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=hgfdg
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T035024.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=hgfdg
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034711.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/52?title=hgfdg
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034651.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=hgfdg
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034636.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=df
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034516.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?name=df
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034500.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?name=df
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034400.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?category_id=2
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034339.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/511
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034159.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034148.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=авыавыа&category_id=2
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T034131.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033608.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033426.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033401.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033344.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033241.500.html
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033233.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033219.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033124.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/522
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033109.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/51
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033051.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T033017.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T032928.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?category_id=4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T032922.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?category_id=4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025926.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/52?category_id=4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025917.404.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/522?category_id=4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025911.404.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?category_id=4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025759.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5?title=fghg&category_id=4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025745.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/5
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025625.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025457.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025417.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025230.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025209.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/501
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025149.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025124.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50?category_id=2
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025117.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50?title=fsdfdsf&category_id=2
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T025108.200.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T024915.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T024854.500.json
+
+###
+
+PUT http://127.0.0.1:8000/api/product/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-06-20T024808.500.json
+
+###
+

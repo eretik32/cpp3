@@ -1,0 +1,181 @@
+{
+  "error": {
+    "code": 500,
+    "message": "Internal Server Error",
+    "exception": [
+      {
+        "message": "The identifier id is missing for a query of CoreBundle\\Entity\\Category",
+        "class": "Doctrine\\ORM\\ORMException",
+        "trace": [
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\ORMException.php",
+            "line": 294,
+            "args": []
+          },
+          {
+            "namespace": "Doctrine\\ORM",
+            "short_class": "ORMException",
+            "class": "Doctrine\\ORM\\ORMException",
+            "type": "::",
+            "function": "missingIdentifierField",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\EntityManager.php",
+            "line": 403,
+            "args": [
+              [
+                "string",
+                "CoreBundle\\Entity\\Category"
+              ],
+              [
+                "string",
+                "id"
+              ]
+            ]
+          },
+          {
+            "namespace": "Doctrine\\ORM",
+            "short_class": "EntityManager",
+            "class": "Doctrine\\ORM\\EntityManager",
+            "type": "->",
+            "function": "find",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\EntityRepository.php",
+            "line": 154,
+            "args": [
+              [
+                "string",
+                "CoreBundle\\Entity\\Category"
+              ],
+              [
+                "array",
+                {
+                  "id": [
+                    "null",
+                    null
+                  ]
+                }
+              ],
+              [
+                "null",
+                null
+              ],
+              [
+                "null",
+                null
+              ]
+            ]
+          },
+          {
+            "namespace": "Doctrine\\ORM",
+            "short_class": "EntityRepository",
+            "class": "Doctrine\\ORM\\EntityRepository",
+            "type": "->",
+            "function": "find",
+            "file": "C:\\OSPanel\\domains\\cpp\\src\\ApiBundle\\Controller\\ProductController.php",
+            "line": 67,
+            "args": [
+              [
+                "null",
+                null
+              ]
+            ]
+          },
+          {
+            "namespace": "ApiBundle\\Controller",
+            "short_class": "ProductController",
+            "class": "ApiBundle\\Controller\\ProductController",
+            "type": "->",
+            "function": "updateProduct",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\HttpKernel\\HttpKernel.php",
+            "line": 151,
+            "args": [
+              [
+                "string",
+                "511"
+              ],
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "HttpKernel",
+            "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+            "type": "->",
+            "function": "handleRaw",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\HttpKernel\\HttpKernel.php",
+            "line": 68,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ],
+              [
+                "integer",
+                1
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "HttpKernel",
+            "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+            "type": "->",
+            "function": "handle",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\HttpKernel\\Kernel.php",
+            "line": 200,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ],
+              [
+                "integer",
+                1
+              ],
+              [
+                "boolean",
+                true
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "Kernel",
+            "class": "Symfony\\Component\\HttpKernel\\Kernel",
+            "type": "->",
+            "function": "handle",
+            "file": "C:\\OSPanel\\domains\\cpp\\web\\app_dev.php",
+            "line": 29,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ]
+            ]
+          },
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "require",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebServerBundle\\Resources\\router.php",
+            "line": 42,
+            "args": [
+              [
+                "string",
+                "C:\\OSPanel\\domains\\cpp\\web\\app_dev.php"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
