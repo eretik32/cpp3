@@ -1,4 +1,16 @@
 {% extends '@Core/Templates/index.html.twig' %}
+{% set title = 'Ebay listing' %}
+{% set keywords = 'Keywords' %}
+{% set description = 'Description' %}
+{% set h1 = title %}
+{% set breadcrumb = title %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block h1 %}{{ h1 }}{% endblock %}
+{% block breadcrumb %}{{ breadcrumb }}{% endblock %}
+
 
 
 
@@ -501,40 +513,40 @@
 
 <section id="content">
     <div class="border box container admin-product-item">
-        <div class="row product-image-block">
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                <a href="#"><img src="{{ asset('bundles/core/assets/vendors/img/profile-pic.jpg') }}"></a>
-            </div>
-            <div class="col-xs-9 center">
-                <h4>Название товара</h4>
-                <br><br>
-                <button class="btn btn-success">Одобрить</button>
-                <button class="btn badge-danger">Отказать</button>
-            </div>
-        </div>
-        <br>
         <div class="row product-image-list">
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                <a href="#"><img src="{{ asset('bundles/core/assets/vendors/img/profile-pic.jpg') }}"></a>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                <a href="#"><img src="{{ asset('bundles/core/assets/vendors/img/profile-pic.jpg') }}"></a>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                <a href="#"><img src="{{ asset('bundles/core/assets/vendors/img/profile-pic.jpg') }}"></a>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                <a href="#"><img src="{{ asset('bundles/core/assets/vendors/img/profile-pic.jpg') }}"></a>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                <a href="#"><img src="{{ asset('bundles/core/assets/vendors/img/profile-pic.jpg') }}"></a>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                <a href="#"><img src="{{ asset('bundles/core/assets/vendors/img/profile-pic.jpg') }}"></a>
-            </div>
+            {% for product in products %}
+                <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="preview-img col-xl-4 col-lg-4 col-md-4 col-sm-4">
+
+                        {% for image in product.imageModeration %}
+                            <img src="{{ image.pictureUrl }}" alt="img">
+                        {% endfor %}
+
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                        <h3>{{ product.title }}</h3>
+                        <a class="btn btn-outline-danger confirm-delete"
+                           href="{{ path('add_image',{id: product.id } ) }}">
+                            <i class="la la-remove"></i>Одобрить
+                        </a>
+                        <a class="btn btn-outline-danger confirm-delete"
+                           href="{{ path('remove_image',{id: product.id } ) }}">
+                            <i class="la la-remove"></i>Удалить
+                        </a>
+                        <br><br>
+                    </div>
+                    <div class="image-footer-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        {% for image in product.imageModeration %}
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                <img src="{{ image.pictureUrl }}" alt="img">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <br>
+            {% endfor %}
         </div>
     </div>
-    <br>
     <br>
     <br>
     <div class="text-center">Тут будет пагинация</div>

@@ -19,97 +19,22 @@ class Category
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="category_title", type="string", length=255)
      */
-    private $category_title;
+    public $category_title;
 
     /**
      * @var string
      *
      * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Product", mappedBy="category")
      *
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="product", referencedColumnName="id")
      */
-    private $product;
+    public $product;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set category_title
-     *
-     * @param string $category_title
-     *
-     * @return Category
-     */
-    public function setTitle($category_title)
-    {
-        $this->category_title = $category_title;
-
-        return $this;
-    }
-
-    /**
-     * Get category_title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->category_title;
-    }
-
-    /**
-     * Add product
-     *
-     * @param \CoreBundle\Entity\Product $product
-     *
-     * @return Category
-     */
-    public function addProduct(\CoreBundle\Entity\Product $product)
-    {
-        $this->product[] = $product;
-
-        return $this;
-    }
-
-    /**
-     * Remove product
-     *
-     * @param \CoreBundle\Entity\Product $product
-     */
-    public function removeProduct(\CoreBundle\Entity\Product $product)
-    {
-        $this->product->removeElement($product);
-    }
-
-    /**
-     * Get product
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
 }

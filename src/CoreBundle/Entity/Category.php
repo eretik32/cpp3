@@ -33,7 +33,7 @@ class Category
      *
      * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Product", mappedBy="category")
      *
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="product", referencedColumnName="id")
      */
     public $product;
 
@@ -56,25 +56,25 @@ class Category
     }
 
     /**
-     * Set category_title
+     * Set categoryTitle
      *
-     * @param string $category_title
+     * @param string $categoryTitle
      *
      * @return Category
      */
-    public function setTitle($category_title)
+    public function setCategoryTitle($categoryTitle)
     {
-        $this->category_title = $category_title;
+        $this->category_title = $categoryTitle;
 
         return $this;
     }
 
     /**
-     * Get category_title
+     * Get categoryTitle
      *
      * @return string
      */
-    public function getTitle()
+    public function getCategoryTitle()
     {
         return $this->category_title;
     }
@@ -111,29 +111,5 @@ class Category
     public function getProduct()
     {
         return $this->product;
-    }
-
-    /**
-     * Set categoryTitle
-     *
-     * @param string $categoryTitle
-     *
-     * @return Category
-     */
-    public function setCategoryTitle($categoryTitle)
-    {
-        $this->category_title = $categoryTitle;
-
-        return $this;
-    }
-
-    /**
-     * Get categoryTitle
-     *
-     * @return string
-     */
-    public function getCategoryTitle()
-    {
-        return $this->category_title;
     }
 }

@@ -33,7 +33,7 @@ class Product
      *
      * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Category", inversedBy="product")
      *
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id")
      */
 
     private $category;
@@ -42,10 +42,19 @@ class Product
      *
      * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Image", mappedBy="product")
      *
-     * @ORM\JoinColumn(name="picture_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="images_product", referencedColumnName="id")
      */
 
     private $images;
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\ImageModeration", mappedBy="product")
+     *
+     * @ORM\JoinColumn(name="images_product", referencedColumnName="id")
+     */
+
+    private $imageModeration;
 
     /**
      * Constructor
@@ -53,6 +62,7 @@ class Product
     public function __construct()
     {
         $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imageModeration = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -145,5 +155,39 @@ class Product
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Add imageModeration
+     *
+     * @param \CoreBundle\Entity\ImageModeration $imageModeration
+     *
+     * @return Product
+     */
+    public function addImageModeration(\CoreBundle\Entity\ImageModeration $imageModeration)
+    {
+        $this->imageModeration[] = $imageModeration;
+
+        return $this;
+    }
+
+    /**
+     * Remove imageModeration
+     *
+     * @param \CoreBundle\Entity\ImageModeration $imageModeration
+     */
+    public function removeImageModeration(\CoreBundle\Entity\ImageModeration $imageModeration)
+    {
+        $this->imageModeration->removeElement($imageModeration);
+    }
+
+    /**
+     * Get imageModeration
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImageModeration()
+    {
+        return $this->imageModeration;
     }
 }

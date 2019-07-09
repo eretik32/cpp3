@@ -29,20 +29,32 @@ class TypeImage
     private $title;
 
     /**
-     * @var Image|null
+     * @var string
      *
-     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Image", mappedBy="image")
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Image", mappedBy="typeimage")
      *
+     * @ORM\JoinColumn(name="image", referencedColumnName="id")
      */
 
-    private $TypeImage;
+    public $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\ImageModeration", mappedBy="typeimage")
+     *
+     * @ORM\JoinColumn(name="image_moderation", referencedColumnName="id")
+     */
+
+    public $imageModeration;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->TypeImage = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imageModeration = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -80,36 +92,70 @@ class TypeImage
     }
 
     /**
-     * Add typeImage
+     * Add image
      *
-     * @param \CoreBundle\Entity\Image $typeImage
+     * @param \CoreBundle\Entity\Image $image
      *
      * @return TypeImage
      */
-    public function addTypeImage(\CoreBundle\Entity\Image $typeImage)
+    public function addImage(\CoreBundle\Entity\Image $image)
     {
-        $this->TypeImage[] = $typeImage;
+        $this->image[] = $image;
 
         return $this;
     }
 
     /**
-     * Remove typeImage
+     * Remove image
      *
-     * @param \CoreBundle\Entity\Image $typeImage
+     * @param \CoreBundle\Entity\Image $image
      */
-    public function removeTypeImage(\CoreBundle\Entity\Image $typeImage)
+    public function removeImage(\CoreBundle\Entity\Image $image)
     {
-        $this->TypeImage->removeElement($typeImage);
+        $this->image->removeElement($image);
     }
 
     /**
-     * Get typeImage
+     * Get image
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTypeImage()
+    public function getImage()
     {
-        return $this->TypeImage;
+        return $this->image;
+    }
+
+    /**
+     * Add imageModeration
+     *
+     * @param \CoreBundle\Entity\ImageModeration $imageModeration
+     *
+     * @return TypeImage
+     */
+    public function addImageModeration(\CoreBundle\Entity\ImageModeration $imageModeration)
+    {
+        $this->imageModeration[] = $imageModeration;
+
+        return $this;
+    }
+
+    /**
+     * Remove imageModeration
+     *
+     * @param \CoreBundle\Entity\ImageModeration $imageModeration
+     */
+    public function removeImageModeration(\CoreBundle\Entity\ImageModeration $imageModeration)
+    {
+        $this->imageModeration->removeElement($imageModeration);
+    }
+
+    /**
+     * Get imageModeration
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImageModeration()
+    {
+        return $this->imageModeration;
     }
 }

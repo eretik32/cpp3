@@ -1,31 +1,24 @@
 <?php
 
-
 namespace ApiBundle\Controller;
 
-use CoreBundle\CoreBundle;
-use CoreBundle\Entity\Category;
 use CoreBundle\Entity\Product;
-use FOS\RestBundle\Controller\FOSRestController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
-use FOS\RestBundle\View\ViewHandler;
-
 
 class ProductController extends AbstractFOSRestController
 {
     /**
      * @Rest\Get("/api/product/")
      */
-    public function getProduct()
+    public function getProductAction()
     {
         $product = $this->getDoctrine()->getRepository('CoreBundle:Product')->findAll();
         if ($product === null) {
-            return new View("there are no users exist", Response::HTTP_NOT_FOUND);
+            return new View("there are no product exist", Response::HTTP_NOT_FOUND);
         }
         return $product;
     }
@@ -35,12 +28,12 @@ class ProductController extends AbstractFOSRestController
      * @param Request $request
      * @return View
      */
-    public function setProduct(Request $request)
+    public function setProductAction(Request $request)
     {
         $data = new Product;
 
-        $title = $request->get('title', 'product 4');
-        $category_id = $request->get('category_id', 4);
+        $title = $request->get('title');
+        $category_id = $request->get('category');
         $category = $this->getDoctrine()->getRepository('CoreBundle:Category')->find($category_id);
 
         if (empty($title) || empty($category)) {
@@ -51,19 +44,19 @@ class ProductController extends AbstractFOSRestController
         $em = $this->getDoctrine()->getManager();
         $em->persist($data);
         $em->flush();
-        return new View("Product Added Successfully", Response::HTTP_OK);
+        return new View("product added successfully", Response::HTTP_OK);
     }
 
     /**
      * @Rest\Put("api/product/{id}")
+     * @param $id
+     * @param Request $request
+     * @return View
      */
-    public function updateProduct($id, Request $request)
+    public function updateProductAction($id, Request $request)
     {
-//        $data = new Product();
         $name = $request->get('title');
-
-
-        $category_id = $request->get('category_id');
+        $category_id = $request->get('category');
         $category = $this->getDoctrine()->getRepository('CoreBundle:Category')->find($category_id);
 
         $sn = $this->getDoctrine()->getManager();
@@ -75,17 +68,17 @@ class ProductController extends AbstractFOSRestController
             $product->setTitle($name);
             $product->setCategory($category);
             $sn->flush();
-            return new View("product Updated Successfully", Response::HTTP_OK);
+            return new View("product updated successfully", Response::HTTP_OK);
         }
         elseif (empty($name) && !empty($category)) {
             $product->setCategory($category);
             $sn->flush();
-            return new View("category Updated Successfully", Response::HTTP_OK);
+            return new View("category updated successfully", Response::HTTP_OK);
         }
         elseif (!empty($name) && empty($category)) {
             $product->setTitle($name);
             $sn->flush();
-            return new View("name Updated Successfully", Response::HTTP_OK);
+            return new View("name updated successfully", Response::HTTP_OK);
         }
         else return new View("name or category cannot be empty", Response::HTTP_NOT_ACCEPTABLE);
     }
@@ -93,9 +86,8 @@ class ProductController extends AbstractFOSRestController
     /**
      * @Rest\Delete("api/product/{id}")
      */
-    public function deleteAction($id)
+    public function deleteActionAction($id)
     {
-        $data = new Product;
         $sn = $this->getDoctrine()->getManager();
         $product = $this->getDoctrine()->getRepository('CoreBundle:Product')->find($id);
         if (empty($product)) {

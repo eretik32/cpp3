@@ -6,175 +6,29 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Image
- *
  * @ORM\Table(name="image")
  * @ORM\Entity(repositoryClass="CoreBundle\Repository\ImageRepository")
  */
-class Image
+class Image extends SuperImage
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="picture_url", type="string", length=255)
-     */
-    private $pictureUrl;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="size", type="integer")
-     */
-    private $size;
-
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="length", type="integer")
-     */
-
-    private $length;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="width", type="integer")
-     */
-
-    private $width;
 
     /**
      * @var Product|null
      *
      * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Product", inversedBy = "images")
+     * @ORM\JoinColumn(name="product", referencedColumnName="id")
      */
 
-    private $product;
+    public $product;
 
     /**
-     *
-     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\TypeImage" , inversedBy = "TypeImage")
-     *
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     * @var typeimage|null
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\TypeImage" , inversedBy = "image")
+     * @ORM\JoinColumn(name="type_image", referencedColumnName="id")
      */
 
-    private $image;
+    public $typeimage;
 
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set pictureUrl
-     *
-     * @param string $pictureUrl
-     *
-     * @return Image
-     */
-    public function setPictureUrl($pictureUrl)
-    {
-        $this->pictureUrl = $pictureUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get pictureUrl
-     *
-     * @return string
-     */
-    public function getPictureUrl()
-    {
-        return $this->pictureUrl;
-    }
-
-    /**
-     * Set size
-     *
-     * @param integer $size
-     *
-     * @return Image
-     */
-    public function setSize($size)
-    {
-        $this->size = $size;
-
-        return $this;
-    }
-
-    /**
-     * Get size
-     *
-     * @return integer
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    /**
-     * Set length
-     *
-     * @param integer $length
-     *
-     * @return Image
-     */
-    public function setLength($length)
-    {
-        $this->length = $length;
-
-        return $this;
-    }
-
-    /**
-     * Get length
-     *
-     * @return integer
-     */
-    public function getLength()
-    {
-        return $this->length;
-    }
-
-    /**
-     * Set width
-     *
-     * @param integer $width
-     *
-     * @return Image
-     */
-    public function setWidth($width)
-    {
-        $this->width = $width;
-
-        return $this;
-    }
-
-    /**
-     * Get width
-     *
-     * @return integer
-     */
-    public function getWidth()
-    {
-        return $this->width;
-    }
 
     /**
      * Set product
@@ -201,26 +55,26 @@ class Image
     }
 
     /**
-     * Set image
+     * Set typeimage
      *
-     * @param \CoreBundle\Entity\TypeImage $image
+     * @param \CoreBundle\Entity\TypeImage $typeimage
      *
      * @return Image
      */
-    public function setImage(\CoreBundle\Entity\TypeImage $image = null)
+    public function setTypeimage(\CoreBundle\Entity\TypeImage $typeimage = null)
     {
-        $this->image = $image;
+        $this->typeimage = $typeimage;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get typeimage
      *
      * @return \CoreBundle\Entity\TypeImage
      */
-    public function getImage()
+    public function getTypeimage()
     {
-        return $this->image;
+        return $this->typeimage;
     }
 }
