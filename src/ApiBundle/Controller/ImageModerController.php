@@ -34,13 +34,9 @@ class ImageModerController extends AbstractFOSRestController
      * @param Product $product
      * @return View
      */
-
-
     public function CreateImageModerationAction(Request $request)
     {
         try {
-
-
             if (isset($_FILES['datafile'])) {
                 $fileName = $_FILES['datafile']['name'];
                 $fileNameActual = strtolower($fileName);
