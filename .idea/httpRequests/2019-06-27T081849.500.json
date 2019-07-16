@@ -1,0 +1,116 @@
+{
+  "error": {
+    "code": 500,
+    "message": "Internal Server Error",
+    "exception": [
+      {
+        "message": "Type error: Too few arguments to function ApiBundle\\Service\\LoadImageModerationService::__construct(), 0 passed in C:\\OSPanel\\domains\\cpp\\src\\ApiBundle\\Controller\\ImageModerController.php on line 21 and exactly 1 expected",
+        "class": "Symfony\\Component\\Debug\\Exception\\FatalThrowableError",
+        "trace": [
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "",
+            "file": "C:\\OSPanel\\domains\\cpp\\src\\ApiBundle\\Service\\LoadImageModerationService.php",
+            "line": 14,
+            "args": []
+          },
+          {
+            "namespace": "ApiBundle\\Service",
+            "short_class": "LoadImageModerationService",
+            "class": "ApiBundle\\Service\\LoadImageModerationService",
+            "type": "->",
+            "function": "__construct",
+            "file": "C:\\OSPanel\\domains\\cpp\\src\\ApiBundle\\Controller\\ImageModerController.php",
+            "line": 21,
+            "args": []
+          },
+          {
+            "namespace": "ApiBundle\\Controller",
+            "short_class": "ImageModerController",
+            "class": "ApiBundle\\Controller\\ImageModerController",
+            "type": "->",
+            "function": "getImageModerationAction",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\HttpKernel\\HttpKernel.php",
+            "line": 151,
+            "args": []
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "HttpKernel",
+            "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+            "type": "->",
+            "function": "handleRaw",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\HttpKernel\\HttpKernel.php",
+            "line": 68,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ],
+              [
+                "integer",
+                1
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "HttpKernel",
+            "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+            "type": "->",
+            "function": "handle",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\HttpKernel\\Kernel.php",
+            "line": 200,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ],
+              [
+                "integer",
+                1
+              ],
+              [
+                "boolean",
+                true
+              ]
+            ]
+          },
+          {
+            "namespace": "Symfony\\Component\\HttpKernel",
+            "short_class": "Kernel",
+            "class": "Symfony\\Component\\HttpKernel\\Kernel",
+            "type": "->",
+            "function": "handle",
+            "file": "C:\\OSPanel\\domains\\cpp\\web\\app_dev.php",
+            "line": 29,
+            "args": [
+              [
+                "object",
+                "Symfony\\Component\\HttpFoundation\\Request"
+              ]
+            ]
+          },
+          {
+            "namespace": "",
+            "short_class": "",
+            "class": "",
+            "type": "",
+            "function": "require",
+            "file": "C:\\OSPanel\\domains\\cpp\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebServerBundle\\Resources\\router.php",
+            "line": 42,
+            "args": [
+              [
+                "string",
+                "C:\\OSPanel\\domains\\cpp\\web\\app_dev.php"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

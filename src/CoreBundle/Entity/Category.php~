@@ -1,0 +1,40 @@
+<?php
+
+namespace CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Category
+ *
+ * @ORM\Table(name="category")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\CategoryRepository")
+ */
+class Category
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category_title", type="string", length=255)
+     */
+    public $category_title;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Product", mappedBy="category")
+     *
+     * @ORM\JoinColumn(name="product", referencedColumnName="id")
+     */
+    public $product;
+
+}
