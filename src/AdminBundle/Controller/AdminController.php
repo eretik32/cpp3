@@ -25,15 +25,19 @@ class AdminController extends AbstractFOSRestController
     public function indexAction(Request $request, PaginatorInterface $paginator)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+//        $products = $this->getDoctrine()->getRepository('CoreBundle:Product')->findAll();
 
-        $products = $this->getDoctrine()->getRepository('CoreBundle:Product')->findAll();
+
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('CoreBundle:Product')
+            ->findActive();
+
 
         foreach ($products as $product) {
 
             $allProducts[] = $product->getImageModeration();
         }
-
-// Сделать вывод картинок связанных с продуктом, в данный момент выводяться все картинки
 
         $pagination = $paginator->paginate(
             $allProducts, // сюда закинуть мой массив с продуктами
@@ -42,14 +46,7 @@ class AdminController extends AbstractFOSRestController
 
         return $this->render('@Admin/Admin/index.html.twig', [
             'products' => $pagination,
-//            'ImageModer' => $imageModer,
         ]);
-
-
-//      return $this->render('@Admin/Admin/index.html.twig', [
-//           'products' => $products,
-//            'ImageModer' => $imageModer
-//        ]);
     }
 
     /**

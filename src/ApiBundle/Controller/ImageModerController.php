@@ -33,15 +33,13 @@ class ImageModerController extends AbstractFOSRestController
      * @return View
      */
 
-
     public function CreateImageModerationAction()
     {
         try {
-
-
             if (isset($_FILES['datafile'])) {
                 $fileName = $_FILES['datafile']['name'];
                 $fileNameActual = strtolower($fileName);
+
                 $fileTmp = $_FILES['datafile']['tmp_name'];
                 $fileSize = $_FILES['datafile']['size'];
 
@@ -55,11 +53,23 @@ class ImageModerController extends AbstractFOSRestController
                 $fileTypeActualExt = strtolower(end($fileExt));
                 $allowed = array("jpg", "jpeg", "png");
 
-                $fileDir = "uploads/";
-                $fileDirNew = $fileDir . $fileNameActual . "/";
-
                 $product_id = $_POST['productId'];
                 $type_image = $_POST['typeImage'];
+                $product_name = $_POST['$productName'];  //Имя продукта , покачто хардкожено
+
+//                Переводим имя продукта в транслит
+                function translit($product_name)
+                {
+                    $s = (string)$product_name; // преобразуем в строковое значение
+                    $s = trim($s); // убираем пробелы в начале и конце строки
+                    $s = function_exists('mb_strtolower') ? mb_strtolower($s) : strtolower($s); // переводим строку в нижний регистр
+                    $s = strtr($s, array('а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'e', 'ж' => 'j', 'з' => 'z', 'и' => 'i', 'й' => 'y', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'c', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'shch', 'ы' => 'y', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya', 'ъ' => '', 'ь' => ''));
+                    return $s; // возвращаем результат
+                }
+
+
+                $fileDir = "uploads/";
+                $fileDirNew = $fileDir . translit($product_name) . "/";
 
                 $product = $this->getDoctrine()->getRepository('CoreBundle:Product')->find($product_id);
                 $type = $this->getDoctrine()->getRepository('CoreBundle:TypeImage')->find($type_image);

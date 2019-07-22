@@ -514,8 +514,8 @@
 <section id="content">
     <div class="border box container admin-product-item">
         <div class="row product-image-list">
-
             {% for product in products %}
+                {% if product  %}
                 <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     {% for productImage in product %}
                         {#{{ productImage.product.title }}#}
@@ -541,6 +541,7 @@
                     {% endif %}
 
                 </div>
+                {% endif %}
             {% endfor %}
             <br>
             <div class="navigation text-center">
