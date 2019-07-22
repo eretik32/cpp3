@@ -30,13 +30,11 @@ class ImageModerController extends AbstractFOSRestController
 
     /**
      * @Rest\Post("/api/imageModeration/")
-     * @param Request $request
-     * @param Product $product
      * @return View
      */
 
 
-    public function CreateImageModerationAction(Request $request)
+    public function CreateImageModerationAction()
     {
         try {
 
@@ -66,7 +64,6 @@ class ImageModerController extends AbstractFOSRestController
                 $product = $this->getDoctrine()->getRepository('CoreBundle:Product')->find($product_id);
                 $type = $this->getDoctrine()->getRepository('CoreBundle:TypeImage')->find($type_image);
                 $typeTitle = $type->getTitle();
-                echo $typeTitle;
                 $data = new ImageModeration();
                 if (empty($product) || empty($type)) {
                     return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE);
@@ -77,9 +74,9 @@ class ImageModerController extends AbstractFOSRestController
 
                     //проверка существования директории
                     if (file_exists($fileDirNew)) {
-                        echo "директория существует";
+                        echo "директория существует ";
                     } else {
-                        echo "создали новую директорию";
+                        echo "создали новую директорию ";
                         mkdir($fileDirNew, 0700, true);
                     }
                     $file = $fileDirNew . $fileNameActual . "_" . $typeTitle . "." . $fileTypeActualExt;
@@ -89,7 +86,6 @@ class ImageModerController extends AbstractFOSRestController
                     if (file_exists($file)) {
                         echo "Файл сохреннен с новым именем";
                         $fileDestinationRename = $fileDirNew . $fileNameActual . "_" . $typeTitle . "_" . round(microtime(true)) . "." . $fileTypeActualExt;
-                        echo $fileDestinationRename;
                         move_uploaded_file($fileTmp, $fileDestinationRename);
 
                         // Создаем обьект image Сохраняем в БД картинку

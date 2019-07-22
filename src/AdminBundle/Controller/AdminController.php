@@ -11,27 +11,45 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use ApiBundle\Controller\ProductController;
 
+use Knp\Component\Pager\PaginatorInterface;
 
 class AdminController extends AbstractFOSRestController
 {
 
     /**
      * @Route("/admin", name="admin")
+     * @param Request $request
+     * @return Response
      */
-    public function getAdminAction()
+    public function indexAction(Request $request, PaginatorInterface $paginator)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $products = $this->getDoctrine()->getRepository('CoreBundle:Product')->findAll();
 
-        $imageModer = $this->getDoctrine()->getRepository('CoreBundle:ImageModeration')->findAll();
+        foreach ($products as $product) {
+
+            $allProducts[] = $product->getImageModeration();
+        }
+
+// Сделать вывод картинок связанных с продуктом, в данный момент выводяться все картинки
+
+        $pagination = $paginator->paginate(
+            $allProducts, // сюда закинуть мой массив с продуктами
+            $request->query->getInt('page', 1), 10
+        );
 
         return $this->render('@Admin/Admin/index.html.twig', [
-            'products' => $products,
-            'ImageModer' => $imageModer
+            'products' => $pagination,
+//            'ImageModer' => $imageModer,
         ]);
+
+
+//      return $this->render('@Admin/Admin/index.html.twig', [
+//           'products' => $products,
+//            'ImageModer' => $imageModer
+//        ]);
     }
 
     /**
@@ -42,7 +60,7 @@ class AdminController extends AbstractFOSRestController
 
     public function RemoveImageModerationAction(Product $product)
     {
-        // удалить
+        // отклонить фото(не прошло модерацию)
         $productId = $product->getId();
         $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(ImageModeration::class)->findBy(
@@ -53,12 +71,11 @@ class AdminController extends AbstractFOSRestController
             $dirNamePath = dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'web'; // путь к папки web
             $pathImg = $dirNamePath . DIRECTORY_SEPARATOR . $rep->getPictureUrl(); //полный путь к картинке
             if (file_exists($pathImg)) {
-                echo $rep->getPictureUrl();
                 unlink($pathImg);
                 $em->remove($rep);
             }
-            $em->flush();
         }
+        $em->flush();
 
         return $this->redirectToRoute('admin');
     }
@@ -68,6 +85,7 @@ class AdminController extends AbstractFOSRestController
      * @param Product $product
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
+    //Согласовать модерируемое фото(перенос в одобренные фото)
     public function AddImageAction(Product $product)
     {
         $productId = $product->getId();
@@ -76,7 +94,7 @@ class AdminController extends AbstractFOSRestController
                 'product' => $productId
             ]);
         $em = $this->getDoctrine()->getManager();
-//TUDO: Удалять модерируемые фото
+
         foreach ($repositoryModerImg as $rep) {
             $data = new Image();
             $productImg = $rep->getProduct();
@@ -95,7 +113,12 @@ class AdminController extends AbstractFOSRestController
 
             $em->persist($data);
         }
+//        Удаление модерируемых фото
+        foreach ($repositoryModerImg as $moderImg) {
+            $em->remove($moderImg);
+        }
         $em->flush();
-        die();
+
+        return $this->redirectToRoute('admin');
     }
 }
