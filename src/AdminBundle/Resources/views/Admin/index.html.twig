@@ -20,7 +20,7 @@
 
         <!-- Logo -->
         <li class="logo">
-            <a href=""><img src="{{ asset('bundles/core/assets/vendors/img/logo.png') }}" alt=""></a>
+            <a href="">CPP</a>
             <div id="menu-trigger"><i class="zmdi zmdi-menu"></i></div>
         </li>
 
@@ -515,41 +515,42 @@
     <div class="border box container admin-product-item">
         <div class="row product-image-list">
             {% for product in products %}
+                {% if product  %}
                 <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <div class="preview-img col-xl-4 col-lg-4 col-md-4 col-sm-4">
-
-                        {% for image in product.imageModeration %}
-                            <img src="{{ image.pictureUrl }}" alt="img">
-                        {% endfor %}
-
-                    </div>
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                        <h3>{{ product.title }}</h3>
+                    {% for productImage in product %}
+                        {#{{ productImage.product.title }}#}
+                        <a href="#" class="product-item">
+                            <img class="preview-img" src="{{ productImage.pictureUrl }}" alt="img">
+                        </a>
+                    {% endfor %}
+                </div>
+                <div>
+                    {% set arrayproduct = product.getValues %}
+                    {% if  arrayproduct == true %}
                         <a class="btn btn-outline-danger confirm-delete"
-                           href="{{ path('add_image',{id: product.id } ) }}">
+                           href="{{ path('add_image',{id: arrayproduct | first.product.id } ) }}"
+                        >
                             <i class="la la-remove"></i>Одобрить
                         </a>
                         <a class="btn btn-outline-danger confirm-delete"
-                           href="{{ path('remove_image',{id: product.id } ) }}">
+                           href="{{ path('remove_image',{id: arrayproduct | first.product.id} ) }}"
+                        >
                             <i class="la la-remove"></i>Удалить
                         </a>
                         <br><br>
-                    </div>
-                    <div class="image-footer-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        {% for image in product.imageModeration %}
-                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                                <img src="{{ image.pictureUrl }}" alt="img">
-                            </div>
-                        {% endfor %}
-                    </div>
+                    {% endif %}
+
                 </div>
-                <br>
+                {% endif %}
             {% endfor %}
+            <br>
+            <div class="navigation text-center">
+                {{ knp_pagination_render(products) }}
+            </div>
         </div>
     </div>
     <br>
     <br>
-    <div class="text-center">Тут будет пагинация</div>
 </section>
 
 <footer id="footer">

@@ -2,6 +2,8 @@
 
 namespace CoreBundle\Repository;
 
+use CoreBundle\Entity\Product;
+
 /**
  * ProductRepository
  *
@@ -10,4 +12,19 @@ namespace CoreBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     *
+     * @return Product[]
+     */
+    public function findActive()
+    {
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('CoreBundle:Product','p')
+            ->innerJoin('p.imageModeration','cp')
+            ->getQuery()
+            ->getResult();
+    }
+
 }

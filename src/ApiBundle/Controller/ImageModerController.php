@@ -30,16 +30,16 @@ class ImageModerController extends AbstractFOSRestController
 
     /**
      * @Rest\Post("/api/imageModeration/")
-     * @param Request $request
-     * @param Product $product
      * @return View
      */
-    public function CreateImageModerationAction(Request $request)
+
+    public function CreateImageModerationAction()
     {
         try {
             if (isset($_FILES['datafile'])) {
                 $fileName = $_FILES['datafile']['name'];
                 $fileNameActual = strtolower($fileName);
+
                 $fileTmp = $_FILES['datafile']['tmp_name'];
                 $fileSize = $_FILES['datafile']['size'];
 
@@ -53,16 +53,27 @@ class ImageModerController extends AbstractFOSRestController
                 $fileTypeActualExt = strtolower(end($fileExt));
                 $allowed = array("jpg", "jpeg", "png");
 
-                $fileDir = "uploads/";
-                $fileDirNew = $fileDir . $fileNameActual . "/";
-
                 $product_id = $_POST['productId'];
                 $type_image = $_POST['typeImage'];
+                $product_name = $_POST['$productName'];  //Имя продукта , покачто хардкожено
+
+//                Переводим имя продукта в транслит
+                function translit($product_name)
+                {
+                    $s = (string)$product_name; // преобразуем в строковое значение
+                    $s = trim($s); // убираем пробелы в начале и конце строки
+                    $s = function_exists('mb_strtolower') ? mb_strtolower($s) : strtolower($s); // переводим строку в нижний регистр
+                    $s = strtr($s, array('а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'e', 'ж' => 'j', 'з' => 'z', 'и' => 'i', 'й' => 'y', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'c', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'shch', 'ы' => 'y', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya', 'ъ' => '', 'ь' => ''));
+                    return $s; // возвращаем результат
+                }
+
+
+                $fileDir = "uploads/";
+                $fileDirNew = $fileDir . translit($product_name) . "/";
 
                 $product = $this->getDoctrine()->getRepository('CoreBundle:Product')->find($product_id);
                 $type = $this->getDoctrine()->getRepository('CoreBundle:TypeImage')->find($type_image);
                 $typeTitle = $type->getTitle();
-                echo $typeTitle;
                 $data = new ImageModeration();
                 if (empty($product) || empty($type)) {
                     return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE);
@@ -73,9 +84,9 @@ class ImageModerController extends AbstractFOSRestController
 
                     //проверка существования директории
                     if (file_exists($fileDirNew)) {
-                        echo "директория существует";
+                        echo "директория существует ";
                     } else {
-                        echo "создали новую директорию";
+                        echo "создали новую директорию ";
                         mkdir($fileDirNew, 0700, true);
                     }
                     $file = $fileDirNew . $fileNameActual . "_" . $typeTitle . "." . $fileTypeActualExt;
@@ -85,7 +96,6 @@ class ImageModerController extends AbstractFOSRestController
                     if (file_exists($file)) {
                         echo "Файл сохреннен с новым именем";
                         $fileDestinationRename = $fileDirNew . $fileNameActual . "_" . $typeTitle . "_" . round(microtime(true)) . "." . $fileTypeActualExt;
-                        echo $fileDestinationRename;
                         move_uploaded_file($fileTmp, $fileDestinationRename);
 
                         // Создаем обьект image Сохраняем в БД картинку
