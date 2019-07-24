@@ -71,6 +71,7 @@ class ImageModerController extends AbstractFOSRestController
                 $fileDir = "uploads/";
                 $fileDirNew = $fileDir . translit($product_name) . "/";
 
+
                 $product = $this->getDoctrine()->getRepository('CoreBundle:Product')->find($product_id);
                 $type = $this->getDoctrine()->getRepository('CoreBundle:TypeImage')->find($type_image);
                 $typeTitle = $type->getTitle();
@@ -89,8 +90,8 @@ class ImageModerController extends AbstractFOSRestController
                         echo "создали новую директорию ";
                         mkdir($fileDirNew, 0700, true);
                     }
-                    $file = $fileDirNew . $fileNameActual . "_" . $typeTitle . "." . $fileTypeActualExt;
 
+                    $file = $fileDirNew . $fileNameActual . "_" . $typeTitle . "." . $fileTypeActualExt;
                     //Проверка на уникальность имени файла если такой существует переименовываем его
 
                     if (file_exists($file)) {

@@ -11,9 +11,9 @@ $filePath = __DIR__ .'/lesTnica.jpg';
 
 curl_setopt($ch, CURLOPT_POSTFIELDS, [
 
-    'datafile' => curl_file_create($filePath, 'image/jpg', 'hghffff'),
-    'productId' => 3,
-    'typeImage' => 1,
+    'datafile' => curl_file_create($filePath, 'image/jpg', 'hghfffffgfg'),
+    'productId' => 1,
+    'typeImage' => 2,
     '$productName' => 'ноутбук'    //Как получить имя продукта
 ]);
 

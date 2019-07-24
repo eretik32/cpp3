@@ -28,6 +28,21 @@ class AdminController extends AbstractFOSRestController
 //        $products = $this->getDoctrine()->getRepository('CoreBundle:Product')->findAll();
 
 
+
+
+        return $this->render('@Admin/Admin/index.html.twig');
+    }
+
+    /**
+     * @Route("/admin/moderation/image", name="admin_moderation")
+     * @param Request $request
+     * @return Response
+     */
+    public function AdminModerationAction(Request $request, PaginatorInterface $paginator)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+
         $products = $this
             ->getDoctrine()
             ->getRepository('CoreBundle:Product')
@@ -35,22 +50,28 @@ class AdminController extends AbstractFOSRestController
 
 
         foreach ($products as $product) {
-
             $allProducts[] = $product->getImageModeration();
         }
 
-        $pagination = $paginator->paginate(
-            $allProducts, // сюда закинуть мой массив с продуктами
-            $request->query->getInt('page', 1), 10
-        );
+        if (!empty($product)) {
+            $pagination = $paginator->paginate(
 
-        return $this->render('@Admin/Admin/index.html.twig', [
-            'products' => $pagination,
-        ]);
+                $allProducts, // сюда закинуть мой массив с продуктами
+                $request->query->getInt('page', 1), 10
+            );
+
+            return $this->render('@Admin/Moderation/moderation.html.twig', [
+                'products' => $pagination,
+            ]);
+
+        } else {
+            return $this->render('@Admin/Moderation/moderation.html.twig');
+        }
+
     }
 
     /**
-     * @Route("/admin/remove/{id}", name="remove_image")
+     * @Route("/admin/moderation/image/remove/{id}", name="remove_image")
      * @param Product $product
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -74,11 +95,11 @@ class AdminController extends AbstractFOSRestController
         }
         $em->flush();
 
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin_moderation');
     }
 
     /**
-     * @Route("/admin/add/{id}", name="add_image")
+     * @Route("/admin/moderation/image/add/{id}", name="add_image")
      * @param Product $product
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -116,6 +137,6 @@ class AdminController extends AbstractFOSRestController
         }
         $em->flush();
 
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin_moderation');
     }
 }

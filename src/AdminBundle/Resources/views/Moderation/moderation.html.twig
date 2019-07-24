@@ -518,7 +518,49 @@
 </aside>
 
 <section id="content">
-    <h1>"Проект ccp sale"</h1>
+    <div class="border box container admin-product-item">
+        <div class="row product-image-list">
+            {% if products is defined %}
+                {% for product in products %}
+                    <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        {% for productImage in product %}
+                            {#{{ productImage.product.title }}#}
+                            <a href="#" class="product-item">
+                                <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        {% set arrayproduct = product.getValues %}
+                        {% if  arrayproduct == true %}
+                            <a class="btn btn-outline-danger confirm-delete"
+                               href="{{ path('add_image',{id: arrayproduct | first.product.id } ) }}"
+                            >
+                                <i class="la la-remove"></i>Одобрить
+                            </a>
+                            <a class="btn btn-outline-danger confirm-delete"
+                               href="{{ path('remove_image',{id: arrayproduct | first.product.id} ) }}"
+                            >
+                                <i class="la la-remove"></i>Отклонить
+                            </a>
+                            <br><br>
+                        {% endif %}
+
+                    </div>
+                {% endfor %}
+                <br>
+                <div class="navigation text-center">
+                    {{ knp_pagination_render(products) }}
+                </div>
+            {% elseif products is not defined %}
+                <h2>No images for moderation</h2>
+
+            {% endif %}
+
+        </div>
+    </div>
+    <br>
+    <br>
 </section>
 
 <footer id="footer">
