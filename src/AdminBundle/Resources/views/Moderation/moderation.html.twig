@@ -522,30 +522,31 @@
         <div class="row product-image-list">
             {% if products is defined %}
                 {% for product in products %}
-                    <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        {% for productImage in product %}
-                            {#{{ productImage.product.title }}#}
-                            <a href="#" class="product-item">
-                                <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
-                            </a>
-                        {% endfor %}
-                    </div>
-                    <div>
-                        {% set arrayproduct = product.getValues %}
-                        {% if  arrayproduct == true %}
-                            <a class="btn btn-outline-danger confirm-delete"
-                               href="{{ path('add_image',{id: arrayproduct | first.product.id } ) }}"
-                            >
-                                <i class="la la-remove"></i>Одобрить
-                            </a>
-                            <a class="btn btn-outline-danger confirm-delete"
-                               href="{{ path('remove_image',{id: arrayproduct | first.product.id} ) }}"
-                            >
-                                <i class="la la-remove"></i>Отклонить
-                            </a>
-                            <br><br>
-                        {% endif %}
-
+                    <div class="container-product">
+                        <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            {% for productImage in product %}
+                                {#{{ productImage.product.title }}#}
+                                <a href="#" class="product-item">
+                                    <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="block-btn">
+                            {% set arrayproduct = product.getValues %}
+                            {% if  arrayproduct == true %}
+                                <a class="btn btn-primary active"
+                                   href="{{ path('add_image',{id: arrayproduct | first.product.id } ) }}"
+                                >
+                                    <i class="la la-remove"></i>Одобрить
+                                </a>
+                                <a class="btn btn-danger active"
+                                   href="{{ path('remove_image',{id: arrayproduct | first.product.id} ) }}"
+                                >
+                                    <i class="la la-remove"></i>Отклонить
+                                </a>
+                                <br><br>
+                            {% endif %}
+                        </div>
                     </div>
                 {% endfor %}
                 <br>

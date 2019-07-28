@@ -55,7 +55,7 @@ class ImageModerController extends AbstractFOSRestController
 
                 $product_id = $_POST['productId'];
                 $type_image = $_POST['typeImage'];
-                $product_name = $_POST['$productName'];  //Имя продукта , покачто хардкожено
+                $fileDir = "uploads/";
 
 //                Переводим имя продукта в транслит
                 function translit($product_name)
@@ -67,12 +67,9 @@ class ImageModerController extends AbstractFOSRestController
                     return $s; // возвращаем результат
                 }
 
-
-                $fileDir = "uploads/";
-                $fileDirNew = $fileDir . translit($product_name) . "/";
-
-
                 $product = $this->getDoctrine()->getRepository('CoreBundle:Product')->find($product_id);
+                $product_name = $product->getTitle();
+                $fileDirNew = $fileDir . translit($product_name) . "/";
                 $type = $this->getDoctrine()->getRepository('CoreBundle:TypeImage')->find($type_image);
                 $typeTitle = $type->getTitle();
                 $data = new ImageModeration();

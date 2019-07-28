@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="51a0f7c4-4190-4ea8-86f2-e9e0ab7921dc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/AdminController.php" />
       <change beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Admin/index.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Admin/index.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Moderation/moderation.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Moderation/moderation.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/ApiBundle/Controller/ImageModerController.php" afterPath="$PROJECT_DIR$/src/ApiBundle/Controller/ImageModerController.php" />
       <change beforePath="$PROJECT_DIR$/src/CoreBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/CoreBundle/Resources/public/css/style.css" />
       <change beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
@@ -37,8 +37,8 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -47,18 +47,8 @@
       <file leaf-file-name="security.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/security.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CoreBundle/Repository/ProductRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="187">
+              <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -67,12 +57,12 @@
       <file leaf-file-name="ImageModerController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/ImageModerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="639">
-              <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="133" selection-end-column="5" />
+            <state relative-caret-position="502">
+              <caret line="71" column="71" lean-forward="false" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
               <folding>
                 <element signature="e#41#90#0#PHP" expanded="true" />
-                <marker date="1563962085426" expanded="true" signature="1928:1962" ph="..." />
-                <marker date="1563962085426" expanded="true" signature="3453:3486" ph="..." />
+                <marker date="1564065393712" expanded="true" signature="1874:1908" ph="..." />
+                <marker date="1564065393712" expanded="true" signature="3411:3444" ph="..." />
               </folding>
             </state>
           </provider>
@@ -81,11 +71,10 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1615">
-              <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+            <state relative-caret-position="486">
+              <caret line="100" column="7" lean-forward="true" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
               <folding>
                 <element signature="e#42#70#0#PHP" expanded="true" />
-                <element signature="e#931#961#1#PHP" expanded="true" />
                 <marker date="1563970892857" expanded="true" signature="900:963" ph="..." />
                 <marker date="1563970892857" expanded="true" signature="902:963" ph="..." />
               </folding>
@@ -96,8 +85,8 @@
       <file leaf-file-name="moderation.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Moderation/moderation.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="543" column="69" lean-forward="false" selection-start-line="543" selection-start-column="69" selection-end-line="543" selection-end-column="69" />
+            <state relative-caret-position="150">
+              <caret line="522" column="40" lean-forward="false" selection-start-line="522" selection-start-column="40" selection-end-line="522" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -106,15 +95,10 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Admin/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="43" column="61" lean-forward="false" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+            <state relative-caret-position="978">
+              <caret line="528" column="35" lean-forward="false" selection-start-line="528" selection-start-column="30" selection-end-line="528" selection-end-column="35" />
               <folding>
-                <marker date="1563970243674" expanded="false" signature="12:43" ph="@Core/Templates/index" />
-                <marker date="1563970243674" expanded="false" signature="11346:11356" ph="..." />
-                <marker date="1563970243674" expanded="false" signature="11922:11932" ph="..." />
-                <marker date="1563970243674" expanded="false" signature="12496:12506" ph="..." />
-                <marker date="1563970243674" expanded="false" signature="13063:13073" ph="..." />
-                <marker date="1563970243674" expanded="false" signature="13633:13643" ph="..." />
+                <marker date="1564062955973" expanded="false" signature="12:43" ph="@Core/Templates/index" />
               </folding>
             </state>
           </provider>
@@ -124,14 +108,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>imageModerationsimageModerations</find>
-      <find>ImageModer</find>
       <find>echo</find>
       <find>paginatio</find>
       <find>$test</find>
       <find>pictureUrl</find>
       <find>Тут будет пагинаци</find>
-      <find>product-image</find>
       <find>find</find>
       <find>navigation</find>
       <find>hfghfgh_top_1563559467</find>
@@ -154,6 +135,9 @@
       <find>Widgets</find>
       <find>Exception</find>
       <find>Удалить</find>
+      <find>product-image</find>
+      <find>Проект ccp sale</find>
+      <find>$productName</find>
     </findStrings>
     <dirStrings>
       <dir>C:\OSPanel\domains\cpp</dir>
@@ -176,13 +160,13 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/ApiBundle/Controller/ProductController.php" />
         <option value="$PROJECT_DIR$/src/CoreBundle/Repository/ProductRepository.php" />
-        <option value="$PROJECT_DIR$/src/ApiBundle/Controller/ImageModerController.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Admin/index.html.twig" />
-        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Moderation/moderation.html.twig" />
         <option value="$PROJECT_DIR$/src/CoreBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/web/bundles/core/css/style.css" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Moderation/moderation.html.twig" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/src/ApiBundle/Controller/ImageModerController.php" />
+        <option value="$PROJECT_DIR$/test.php" />
       </list>
     </option>
   </component>
@@ -484,6 +468,13 @@
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cpp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="telefon" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -495,7 +486,7 @@
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../seo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agencysuite" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
@@ -1179,12 +1170,13 @@
       <workItem from="1563893118079" duration="1436000" />
       <workItem from="1563894621847" duration="606000" />
       <workItem from="1563959503817" duration="6143000" />
-      <workItem from="1563965757576" duration="4206000" />
+      <workItem from="1563965757576" duration="4815000" />
+      <workItem from="1564062813491" duration="4966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168168000" />
+    <option name="totallyTimeSpent" value="173743000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1199,7 +1191,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3672708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16471216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
@@ -1249,7 +1241,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="33" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1515,14 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -1534,6 +1518,40 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/uploads/telefon/hghffff_type1.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Admin/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="978">
+          <caret line="528" column="35" lean-forward="false" selection-start-line="528" selection-start-column="30" selection-end-line="528" selection-end-column="35" />
+          <folding>
+            <marker date="1564062955973" expanded="false" signature="12:43" ph="@Core/Templates/index" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CoreBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="96" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/core/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="99" column="1" lean-forward="false" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Moderation/moderation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="522" column="40" lean-forward="false" selection-start-line="522" selection-start-column="40" selection-end-line="522" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CoreBundle/Repository/ProductRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1542,72 +1560,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/ImageModerController.php">
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="133" selection-end-column="5" />
-          <folding>
-            <element signature="e#41#90#0#PHP" expanded="true" />
-            <marker date="1563962085426" expanded="true" signature="1928:1962" ph="..." />
-            <marker date="1563962085426" expanded="true" signature="3453:3486" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CoreBundle/Resources/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="88" column="24" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/core/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
+        <state relative-caret-position="187">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        <state relative-caret-position="238">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Admin/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/ImageModerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="43" column="61" lean-forward="false" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+        <state relative-caret-position="502">
+          <caret line="71" column="71" lean-forward="false" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
           <folding>
-            <marker date="1563970243674" expanded="false" signature="12:43" ph="@Core/Templates/index" />
-            <marker date="1563970243674" expanded="false" signature="11346:11356" ph="..." />
-            <marker date="1563970243674" expanded="false" signature="11922:11932" ph="..." />
-            <marker date="1563970243674" expanded="false" signature="12496:12506" ph="..." />
-            <marker date="1563970243674" expanded="false" signature="13063:13073" ph="..." />
-            <marker date="1563970243674" expanded="false" signature="13633:13643" ph="..." />
+            <element signature="e#41#90#0#PHP" expanded="true" />
+            <marker date="1564065393712" expanded="true" signature="1874:1908" ph="..." />
+            <marker date="1564065393712" expanded="true" signature="3411:3444" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Moderation/moderation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="543" column="69" lean-forward="false" selection-start-line="543" selection-start-column="69" selection-end-line="543" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+        <state relative-caret-position="486">
+          <caret line="100" column="7" lean-forward="true" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
           <folding>
             <element signature="e#42#70#0#PHP" expanded="true" />
-            <element signature="e#931#961#1#PHP" expanded="true" />
             <marker date="1563970892857" expanded="true" signature="900:963" ph="..." />
             <marker date="1563970892857" expanded="true" signature="902:963" ph="..." />
           </folding>

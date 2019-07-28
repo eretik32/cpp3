@@ -23,9 +23,6 @@
     /*}*/
 /*}*/
 .admin-product-item .product-image{
-    border: 1px solid #a0a0a0;
-    padding: 10px;
-    margin: 10px 0px;
     display: grid;
     float: inherit;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -88,4 +85,13 @@
 }
 .side-menu>li ul a:hover{
     color: white;
+}
+.container-product{
+    border: 1px solid #a0a0a0;
+    padding: 10px;
+    margin: 10px 0px;
+}
+.container-product .block-btn{
+    padding: 20px;
+    padding-bottom: 0px;
 }

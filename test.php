@@ -13,8 +13,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, [
 
     'datafile' => curl_file_create($filePath, 'image/jpg', 'hghfffffgfg'),
     'productId' => 1,
-    'typeImage' => 2,
-    '$productName' => 'ноутбук'    //Как получить имя продукта
+    'typeImage' => 2
 ]);
 
 // добавить тип картинки и id продукта
