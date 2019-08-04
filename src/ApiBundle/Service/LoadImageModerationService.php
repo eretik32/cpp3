@@ -16,7 +16,7 @@ class LoadImageModerationService
 //        $this->requestStack = $requestStack;
 //    }
 
-    public function TestScript()
+        public function TestScript()
     {
 
     }
