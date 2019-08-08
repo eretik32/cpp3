@@ -37,4 +37,79 @@ class Category
      */
     public $product;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set categoryTitle
+     *
+     * @param string $categoryTitle
+     *
+     * @return Category
+     */
+    public function setCategoryTitle($categoryTitle)
+    {
+        $this->category_title = $categoryTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryTitle
+     *
+     * @return string
+     */
+    public function getCategoryTitle()
+    {
+        return $this->category_title;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \CoreBundle\Entity\Product $product
+     *
+     * @return Category
+     */
+    public function addProduct(\CoreBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \CoreBundle\Entity\Product $product
+     */
+    public function removeProduct(\CoreBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
 }

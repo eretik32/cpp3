@@ -5,10 +5,7 @@ namespace CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * SuperImage
- *
- * @ORM\Table(name="super_image")
- * @ORM\Entity(repositoryClass="CoreBundle\Repository\SuperImageRepository")
+ * @ORM\MappedSuperclass
  */
 class SuperImage
 {

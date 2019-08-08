@@ -12,7 +12,7 @@ $filePath = __DIR__ .'/lesTnica.jpg';
 curl_setopt($ch, CURLOPT_POSTFIELDS, [
 
     'datafile' => curl_file_create($filePath, 'image/jpg', 'hghfffffgfg'),
-    'productId' => 1,
+    'productId' => 4,
     'typeImage' => 2
 ]);
 

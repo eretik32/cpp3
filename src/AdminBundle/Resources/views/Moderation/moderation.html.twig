@@ -15,6 +15,7 @@
 
 
 {% block content %}
+
 <header id="header" class="clearfix" data-spy="affix" data-offset-top="65">
     <ul class="header-inner">
 
@@ -471,6 +472,7 @@
 </header>
 
 <aside id="sidebar">
+
     <!--| MAIN MENU |-->
     <ul class="side-menu">
         <li class="sm-sub sms-profile">
@@ -517,12 +519,73 @@
     </ul>
 </aside>
 
+
+{#{{ render(controller(#}
+{#'AdminBundle:Search:Search.html.twig'#}
+{#)) }}#}
+{#{{ form_start(form) }}#}
+{#{{ form_widget(form) }}#}
+{#{{ form_end(form) }}#}
+
+{#{{ form_start(form,{#}
+    {#'attr':{'class':'navbar-form navbar-right'}#}
+{#}) }}#}
+
+    {#{{ form_widget(form.search,{#}
+        {#'attr':{'class':'form-control search-query'}#}
+    {#}) }}#}
+
+    {#{{ form_end(form()) }}#}
 <section id="content">
+    {{ render(controller(
+    'AdminBundle:Admin:searchBar'
+    )) }}
+    {#Вывод продуктов по результатам поиска#}
+    <div class="border box container admin-product-item">
+        <div class="row product-image-list">
+            {% if productSearch is defined %}
+                {% for product in productSearch %}
+                    <div class="container-product">
+                        <h2>{{ product.owner.title }}</h2>
+                        <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            {% for productImage in product %}
+                                <a href="#" class="product-item">
+                                    <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="block-btn">
+                            {% set arrayproduct = product.getValues %}
+                            {% if  arrayproduct == true %}
+                                <a class="btn btn-primary active"
+                                   href="{{ path('add_image',{id: arrayproduct | first.product.id } ) }}"
+                                >
+                                    <i class="la la-remove"></i>Одобрить
+                                </a>
+                                <a class="btn btn-danger active"
+                                   href="{{ path('remove_image',{id: arrayproduct | first.product.id} ) }}"
+                                >
+                                    <i class="la la-remove"></i>Отклонить
+                                </a>
+                                <br><br>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% elseif productSearch is not defined %}
+                {% if null_products is defined %}
+                    <h2>{{ null_products }}</h2>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
     <div class="border box container admin-product-item">
         <div class="row product-image-list">
             {% if products is defined %}
                 {% for product in products %}
                     <div class="container-product">
+                        <h2>{{ product.owner.title }}</h2>
                         <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             {% for productImage in product %}
                                 {#{{ productImage.product.title }}#}
@@ -554,8 +617,7 @@
                     {{ knp_pagination_render(products) }}
                 </div>
             {% elseif products is not defined %}
-                <h2>No images for moderation</h2>
-
+                {#<h2>No images for moderation</h2>#}
             {% endif %}
 
         </div>

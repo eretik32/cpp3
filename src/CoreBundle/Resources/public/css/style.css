@@ -26,6 +26,7 @@
     display: grid;
     float: inherit;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 12px;
 }
 .admin-product-item .product-image-list img{
     width: 100%;
