@@ -33,7 +33,6 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('product')
             ->where('product.title LIKE :searchTerm')
             ->setParameter('searchTerm', '%' . $term . '%')
-//            ->from('CoreBundle:Product', 'p')
             ->innerJoin('product.imageModeration', 'cp')
             ->getQuery()
             ->execute();

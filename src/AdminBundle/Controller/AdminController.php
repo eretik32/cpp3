@@ -53,6 +53,7 @@ class AdminController extends AbstractFOSRestController
             ->getRepository('CoreBundle:Product')
             ->findActive();
 
+
         foreach ($products as $product) {
             $allProducts[] = $product->getImageModeration();
         }
