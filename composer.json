@@ -27,6 +27,7 @@
         "knplabs/knp-menu-bundle": "^2.0",
         "knplabs/knp-paginator-bundle": "^2.8",
         "nelmio/cors-bundle": "^1.5",
+        "phpoffice/phpspreadsheet": "^1.8.2",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
         "symfony/asset": "^3.4",
@@ -60,7 +61,7 @@
     },
     "config": {
         "platform": {
-            "php": "5.5.9"
+            "php": "7.2.2"
         },
         "sort-packages": true
     },

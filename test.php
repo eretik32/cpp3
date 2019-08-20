@@ -11,9 +11,9 @@ $filePath = __DIR__ .'/lesTnica.jpg';
 
 curl_setopt($ch, CURLOPT_POSTFIELDS, [
 
-    'datafile' => curl_file_create($filePath, 'image/jpg', 'hghfffffgfg'),
-    'productId' => 4,
-    'typeImage' => 2
+    'datafile' => curl_file_create($filePath, 'image/jpg', 'gfdgfggg'),
+    'productId' => 8,
+    'typeImage' => 3
 ]);
 
 // добавить тип картинки и id продукта

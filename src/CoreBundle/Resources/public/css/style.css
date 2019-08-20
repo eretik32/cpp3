@@ -96,7 +96,7 @@
     grid-row-start: 1;
     grid-column-start: 1;
     grid-row-end: 3;
-    grid-column-end: 4;
+    grid-column-end: 3;
 }
 .container-product .block-btn{
     padding: 20px;
@@ -126,4 +126,28 @@
     width: 90%;
     flex-grow: 1;
 }
+.container-product .image-research{
+    position: relative;
+}
+.container-product .image-research .check-image-research{
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    width: 18px;
+    height: 18px;
+    margin: 0px;
+}
+#load_product_list_form{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 
+#load_product_list_form .hide{
+    display: none;
+}
+.research-confirm{
+    margin: auto;
+    display: block;
+    margin-right: 0;
+}

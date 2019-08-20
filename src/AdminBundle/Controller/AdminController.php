@@ -2,17 +2,12 @@
 
 namespace AdminBundle\Controller;
 
-use CoreBundle\CoreBundle;
 use CoreBundle\Entity\Image;
 use CoreBundle\Entity\ImageModeration;
 use CoreBundle\Entity\Product;
-use CoreBundle\Repository\ProductRepository;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-
 use FOS\RestBundle\Controller\AbstractFOSRestController;
-use FOS\RestBundle\View\View;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Tests\Fixtures\Type;
 use Symfony\Component\HttpFoundation\Request;

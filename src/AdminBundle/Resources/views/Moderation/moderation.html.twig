@@ -511,9 +511,9 @@
             </ul>
         </li>
         <li>
-            <a href="#">
-                <i class="zmdi zmdi-widgets"></i>
-                <span>Widgets</span>
+            <a href="{{ path('file_mapping') }}">
+                <i class="zmdi zmdi-format-underlined"></i>
+                <span>FileMapping</span>
             </a>
         </li>
     </ul>
@@ -532,7 +532,8 @@
                     <div class="container-product">
                         <div class="block-title-product">
                             <h2><span class="small-text">Product:</span> {{ product.owner.title }}</h2>
-                            <h2><span class="small-text">Category:</span> {{ product.owner.category.category_title }}</h2>
+                            <h2><span class="small-text">Category:</span> {{ product.owner.category.category_title }}
+                            </h2>
                         </div>
                         <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             {% for productImage in product %}
@@ -574,11 +575,13 @@
                     <div class="container-product">
                         <div class="block-title-product">
                             <h2><span class="small-text">Product:</span> {{ product.owner.title }}</h2>
-                            <h2><span class="small-text">Category:</span> {{ product.owner.category.category_title }}</h2>
+                            <h2><span class="small-text">Category:</span> {{ product.owner.category.category_title }}
+                            </h2>
                         </div>
                         <hr class="hr">
                         <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             {% for productImage in product %}
+                                {{ dump(productImage) }}
                                 <a href="#" class="product-item">
                                     <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
                                 </a>
