@@ -1,4 +1,6 @@
 services:
-#    api.example:
-#        class: ApiBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+#  load_image_moderation:
+#    public: true
+#    class: ApiBundle\Service\LoadImageModerationService
+#    arguments: ["@doctrine.orm.entity_manager"]

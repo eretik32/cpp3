@@ -12,7 +12,7 @@ services:
         autoconfigure: true
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
-        public: false
+        public: true
 
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -59,6 +59,11 @@ services:
         resource: '../../src/ApiBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
-    ApiBundle\Service\LoadImageModerationService:
-        public: true
+
+#    ApiBundle\Service\LoadImageModerationService:
+#        public: true
+#        class: ApiBundle\Service\LoadImageModerationService
+
+    load_image_moderation:
         class: ApiBundle\Service\LoadImageModerationService
+        arguments: ["@doctrine.orm.entity_manager"]
