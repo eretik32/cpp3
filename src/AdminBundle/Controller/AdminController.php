@@ -5,12 +5,14 @@ namespace AdminBundle\Controller;
 use CoreBundle\Entity\Image;
 use CoreBundle\Entity\ImageModeration;
 use CoreBundle\Entity\Product;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
-use FOS\RestBundle\View\View;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Tests\Fixtures\Type;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -28,6 +30,19 @@ class AdminController extends AbstractFOSRestController
 //        $products = $this->getDoctrine()->getRepository('CoreBundle:Product')->findAll();
 
 
+        return $this->render('@Admin/Admin/index.html.twig');
+    }
+
+    /**
+     * @Route("/admin/moderation/image", name="admin_moderation")
+     * @param Request $request
+     * @return Response
+     */
+    public function AdminModerationAction(Request $request, PaginatorInterface $paginator)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+
         $products = $this
             ->getDoctrine()
             ->getRepository('CoreBundle:Product')
@@ -35,22 +50,28 @@ class AdminController extends AbstractFOSRestController
 
 
         foreach ($products as $product) {
-
             $allProducts[] = $product->getImageModeration();
         }
 
-        $pagination = $paginator->paginate(
-            $allProducts, // сюда закинуть мой массив с продуктами
-            $request->query->getInt('page', 1), 10
-        );
+        if (!empty($product)) {
+            $pagination = $paginator->paginate(
 
-        return $this->render('@Admin/Admin/index.html.twig', [
-            'products' => $pagination,
-        ]);
+                $allProducts, // сюда закинуть мой массив с продуктами
+                $request->query->getInt('page', 1), 10
+            );
+
+            return $this->render('@Admin/Moderation/moderation.html.twig', [
+                'products' => $pagination,
+            ]);
+
+        } else {
+            return $this->render('@Admin/Moderation/moderation.html.twig');
+        }
+
     }
 
     /**
-     * @Route("/admin/remove/{id}", name="remove_image")
+     * @Route("/admin/moderation/image/remove/{id}", name="remove_image")
      * @param Product $product
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -74,11 +95,11 @@ class AdminController extends AbstractFOSRestController
         }
         $em->flush();
 
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin_moderation');
     }
 
     /**
-     * @Route("/admin/add/{id}", name="add_image")
+     * @Route("/admin/moderation/image/add/{id}", name="add_image")
      * @param Product $product
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -116,6 +137,51 @@ class AdminController extends AbstractFOSRestController
         }
         $em->flush();
 
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin_moderation');
+    }
+
+    public function searchBarAction()
+    {
+        $form = $this->createFormBuilder(null)
+            ->add('search', TextType::class, [
+                'label' => false,
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'search',
+            ])
+            ->getForm();
+
+
+        return $this->render('@Admin/Search/SearchBar.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/admin/moderation/image/search", name="handleSearch")
+     * @param Request request
+     */
+    public function handleSearch(Request $request)
+    {
+        $resultForm = $request->request->get('form')['search'];
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('CoreBundle:Product')
+            ->findByName($resultForm);
+
+        if (!$products == null) {
+            foreach ($products as $productSearch) {
+                $allProducts[] = $productSearch->getImageModeration();
+            }
+            return $this->render('@Admin/Moderation/moderation.html.twig', [
+                'productSearch' => $allProducts
+            ]);
+        }
+        else{
+            return $this->render('@Admin/Moderation/moderation.html.twig', [
+                'null_products' => "Продукты не найдены"
+            ]);
+        }
+
     }
 }

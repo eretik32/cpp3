@@ -3,6 +3,7 @@
 namespace CoreBundle\Repository;
 
 use CoreBundle\Entity\Product;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * ProductRepository
@@ -21,10 +22,30 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         return $this->getEntityManager()
             ->createQueryBuilder()
             ->select('p')
-            ->from('CoreBundle:Product','p')
-            ->innerJoin('p.imageModeration','cp')
+            ->from('CoreBundle:Product', 'p')
+            ->innerJoin('p.imageModeration', 'cp')
             ->getQuery()
             ->getResult();
     }
 
+//Поиск продуктов (LIKE)
+    public function findByName($term)
+    {
+        return $this->createQueryBuilder('product')
+            ->where('product.title LIKE :searchTerm')
+            ->setParameter('searchTerm', '%' . $term . '%')
+            ->innerJoin('product.imageModeration', 'cp')
+            ->getQuery()
+            ->execute();
+    }
+//    Поиск для сопоставления продуктов
+    public function findByProductName($term)
+    {
+        return $this->createQueryBuilder('product')
+            ->where('product.title LIKE :searchTerm')
+            ->setParameter('searchTerm', '%' . $term . '%')
+            ->innerJoin('product.images', 'cpp')
+            ->getQuery()
+            ->execute();
+    }
 }

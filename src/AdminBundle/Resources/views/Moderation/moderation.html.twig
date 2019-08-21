@@ -15,8 +15,10 @@
 
 
 {% block content %}
+
 <header id="header" class="clearfix" data-spy="affix" data-offset-top="65">
     <ul class="header-inner">
+
         <!-- Logo -->
         <li class="logo">
             <a href="">CPP</a>
@@ -518,7 +520,103 @@
 </aside>
 
 <section id="content">
-    <h1>"Project ccp sale"</h1>
+    {{ render(controller(
+    'AdminBundle:Admin:searchBar'
+    )) }}
+    {#Вывод продуктов по результатам поиска#}
+    <div class="border box container admin-product-item">
+        <div class="row product-image-list">
+            {% if productSearch is defined %}
+                {% for product in productSearch %}
+                    <br><br>
+                    <div class="container-product">
+                        <div class="block-title-product">
+                            <h2><span class="small-text">Product:</span> {{ product.owner.title }}</h2>
+                            <h2><span class="small-text">Category:</span> {{ product.owner.category.category_title }}
+                            </h2>
+                        </div>
+                        <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            {% for productImage in product %}
+                                <a href="#" class="product-item">
+                                    <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="block-btn">
+                            {% set arrayproduct = product.getValues %}
+                            {% if  arrayproduct == true %}
+                                <a class="btn btn-primary active"
+                                   href="{{ path('add_image',{id: arrayproduct | first.product.id } ) }}"
+                                >
+                                    <i class="la la-remove"></i>Одобрить
+                                </a>
+                                <a class="btn btn-danger active"
+                                   href="{{ path('remove_image',{id: arrayproduct | first.product.id} ) }}"
+                                >
+                                    <i class="la la-remove"></i>Отклонить
+                                </a>
+                                <br><br>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% elseif productSearch is not defined %}
+                {% if null_products is defined %}
+                    <h2>{{ null_products }}</h2>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="border box container admin-product-item">
+        <div class="row product-image-list">
+            {% if products is defined %}
+                {% for product in products %}
+                    <div class="container-product">
+                        <div class="block-title-product">
+                            <h2><span class="small-text">Product:</span> {{ product.owner.title }}</h2>
+                            <h2><span class="small-text">Category:</span> {{ product.owner.category.category_title }}
+                            </h2>
+                        </div>
+                        <hr class="hr">
+                        <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            {% for productImage in product %}
+                                {{ dump(productImage) }}
+                                <a href="#" class="product-item">
+                                    <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="block-btn">
+                            {% set arrayproduct = product.getValues %}
+                            {% if  arrayproduct == true %}
+                                <a class="btn btn-primary active"
+                                   href="{{ path('add_image',{id: arrayproduct | first.product.id } ) }}"
+                                >
+                                    <i class="la la-remove"></i>Одобрить
+                                </a>
+                                <a class="btn btn-danger active"
+                                   href="{{ path('remove_image',{id: arrayproduct | first.product.id} ) }}"
+                                >
+                                    <i class="la la-remove"></i>Отклонить
+                                </a>
+                                <br><br>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <br>
+                <div class="navigation text-center">
+                    {{ knp_pagination_render(products) }}
+                </div>
+            {% elseif products is not defined %}
+                {#<h2>No images for moderation</h2>#}
+            {% endif %}
+
+        </div>
+    </div>
+    <br>
+    <br>
 </section>
 
 <footer id="footer">
@@ -526,7 +624,7 @@
 
     <ul class="f-menu">
         <li><a href="">Home</a></li>
-        <li><a href="{{ path('admin') }}">Moderation</a></li>
+        <li><a href="">Dashboard</a></li>
         <li><a href="">Reports</a></li>
         <li><a href="">Support</a></li>
         <li><a href="">Contact</a></li>

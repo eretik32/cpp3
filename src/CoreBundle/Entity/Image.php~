@@ -37,6 +37,15 @@ class Image extends SuperImage
      *
      * @return Image
      */
+
+
+    /**
+     * @var string
+     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Research", inversedBy = "images")
+     */
+    public $research;
+
+
     public function setProduct(\CoreBundle\Entity\Product $product = null)
     {
         $this->product = $product;
@@ -77,4 +86,5 @@ class Image extends SuperImage
     {
         return $this->typeimage;
     }
+    
 }
