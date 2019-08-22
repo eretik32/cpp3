@@ -1,6 +1,11 @@
 services:
 
-#  load_image_moderation:
-#    public: true
-#    class: ApiBundle\Service\LoadImageModerationService
-#    arguments: ["@doctrine.orm.entity_manager"]
+  load_image_moderation:
+    public: true
+    class: ApiBundle\Service\LoadImageModerationService
+    arguments:
+      - "%upload_direcrory%"
+      - "%allow_file_extensions%"
+      - "%max_image_size%"
+      - "@doctrine.orm.entity_manager"
+      - "@translit_helper"

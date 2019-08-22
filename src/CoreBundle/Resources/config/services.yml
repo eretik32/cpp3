@@ -1,1 +1,5 @@
+services:
 
+  translit_helper:
+    public: true
+    class: CoreBundle\Service\TranslitHelper

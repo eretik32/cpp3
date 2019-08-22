@@ -2,7 +2,8 @@
 
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, 'http://cpp.local/api/imageModeration/');// Загружаемый URL
+curl_setopt($ch, CURLOPT_URL, 'http://cpp.local/api/image-moderation/');
+//curl_setopt($ch, CURLOPT_URL, 'http://cpp.local/app_dev.php/api/image-moderation/');// Загружаемый URL
 curl_setopt($ch, CURLOPT_POST, 1); // указываем метод POST
 curl_setopt($ch, CURLOPT_TIMEOUT, 10); //время запроса
 curl_setopt($ch, CURLOPT_SAFE_UPLOAD, true);
