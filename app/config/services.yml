@@ -33,14 +33,6 @@ services:
 #    # AppBundle\Service\ExampleService:
 #    #     arguments:
 #    #         $someArgument: 'some_value'
-    CoreBundle\:
-        resource: '../../src/CoreBundle/*'
-        exclude: '../../src/CoreBundle/{Entity,Repository}'
-
-    CoreBundle\Controller\:
-        resource: '../../src/CoreBundle/Controller'
-        public: true
-        tags: ['controller.service_arguments']
 
     AdminBundle\:
         resource: '../../src/AdminBundle/*'
@@ -50,15 +42,3 @@ services:
         resource: '../../src/AdminBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
-
-    ApiBundle\:
-        resource: '../../src/ApiBundle/*'
-        exclude: '../../src/ApiBundle/{Entity,Repository,Tests}'
-
-    ApiBundle\Controller\:
-        resource: '../../src/ApiBundle/Controller'
-        public: true
-        tags: ['controller.service_arguments']
-    ApiBundle\Service\LoadImageModerationService:
-        public: true
-        class: ApiBundle\Service\LoadImageModerationService
