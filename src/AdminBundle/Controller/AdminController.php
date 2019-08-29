@@ -12,9 +12,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Tests\Fixtures\Type;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
-
 use Knp\Component\Pager\PaginatorInterface;
+
+use Swagger\Annotations as SWG;
 
 class AdminController extends AbstractFOSRestController
 {

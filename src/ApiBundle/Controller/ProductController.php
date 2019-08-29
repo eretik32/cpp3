@@ -8,10 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use Swagger\Annotations as SWG;
 
 class ProductController extends AbstractFOSRestController
 {
     /**
+     * @SWG\Tag(name="product")
+     *
      * @Rest\Get("/api/product/")
      */
     public function getProductAction()
@@ -24,6 +27,8 @@ class ProductController extends AbstractFOSRestController
     }
 
     /**
+     * @SWG\Tag(name="product")
+     *
      * @Rest\Post("/api/product/")
      * @param Request $request
      * @return View
@@ -48,6 +53,8 @@ class ProductController extends AbstractFOSRestController
     }
 
     /**
+     * @SWG\Tag(name="product")
+     *
      * @Rest\Put("api/product/{id}")
      * @param $id
      * @param Request $request
@@ -84,6 +91,8 @@ class ProductController extends AbstractFOSRestController
     }
 
     /**
+     * @SWG\Tag(name="product")
+     *
      * @Rest\Delete("api/product/{id}")
      */
     public function deleteActionAction($id)

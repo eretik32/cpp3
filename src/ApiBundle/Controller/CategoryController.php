@@ -8,10 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use Swagger\Annotations as SWG;
 
 class CategoryController extends AbstractFOSRestController
 {
     /**
+     * @SWG\Tag(name="category")
+     *
      * @Rest\Get("/api/category/")
      */
     public function getCategoryAction()
@@ -24,6 +27,8 @@ class CategoryController extends AbstractFOSRestController
     }
 
     /**
+     * @SWG\Tag(name="category")
+     *
      * @Rest\Post("/api/category/")
      * @param Request $request
      * @return View
@@ -45,6 +50,8 @@ class CategoryController extends AbstractFOSRestController
     }
 
     /**
+     * @SWG\Tag(name="category")
+     *
      * @Rest\Put("api/category/{id}")
      * @param $id
      * @param Request $request
@@ -66,7 +73,10 @@ class CategoryController extends AbstractFOSRestController
         }
         else return new View("category name cannot be empty", Response::HTTP_NOT_ACCEPTABLE);
     }
+
     /**
+     * @SWG\Tag(name="category")
+     *
      * @Rest\Delete("api/category/{id}")
      */
     public function deleteCategoryAction($id)
