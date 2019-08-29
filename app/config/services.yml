@@ -42,3 +42,8 @@ services:
         resource: '../../src/AdminBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
+
+    CoreBundle\Controller\:
+        resource: '../../src/CoreBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']

@@ -540,28 +540,48 @@
 
         <div class="border box container admin-product-item">
             <div class="row product-image-list">
-                {% for productResearch in productsListResearch %}
-                    <div class="container-product">
-                        <div class="block-title-product">
-                            <h2><span class="small-text">Product:</span> {{ productResearch.owner.title }}</h2>
+                {% if productsListResearch is defined %}
+                    {% for productResearch in productsListResearch %}
+                        <div class="container-product">
+                            <div class="block-title-product">
+                                <h2><span class="small-text">Product:</span> {{ productResearch.owner.title }}</h2>
+                            </div>
+                            <hr class="hr">
+                            <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                {% for ImageResearch in productResearch %}
+                                    <a href="#" class="product-item image-research">
+                                        <input type="checkbox" name="addImage" class="check-image-research">
+                                        <img class="preview-img" src="/{{ ImageResearch.pictureUrl }}" alt="img">
+                                    </a>
+                                {% endfor %}
+                            </div>
+                            <br>
+                            <button class="btn btn-primary research-confirm">Подтвердить</button>
                         </div>
-                        <hr class="hr">
-                        <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            {% for ImageResearch in productResearch %}
-                                <a href="#" class="product-item image-research">
-                                    <input type="checkbox" name="addImage" class="check-image-research">
-                                    <img class="preview-img" src="/{{ ImageResearch.pictureUrl }}" alt="img">
-                                </a>
-                            {% endfor %}
-                        </div>
-                        <br>
-                        <button class="btn btn-primary research-confirm">Подтвердить</button>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
-    </section>
 
+
+        <div class="load-check-images">
+
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(".research-confirm").on("click", function () {
+
+            var listImageResearchInput = $(this).parent().find("a input:checked");
+            var listImageResearchImg = $(listImageResearchInput).parent().find("img");
+
+            $.each(listImageResearchImg, function (index, ImageResearchImg) {
+                console.log(ImageResearchImg);
+            });
+        });
+
+    </script>
 
 
 

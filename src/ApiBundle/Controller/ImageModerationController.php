@@ -23,9 +23,6 @@ class ImageModerationController extends AbstractFOSRestController
      */
     public function getImageModerationAction()
     {
-//        $data = new LoadImageModerationService();
-//        $data->TestScript();
-
         return new View("successfully", Response::HTTP_OK);
     }
 

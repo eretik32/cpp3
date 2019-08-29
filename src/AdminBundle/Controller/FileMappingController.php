@@ -32,6 +32,15 @@ class FileMappingController extends Controller
             if (in_array($extension, $file_mimes)) {
 
                 if ('xlsx' == $extension) {
+                    //Очищаем таблицу Research в БД
+                    $em = $this->getDoctrine()->getManager();
+                    $research_list = $this->getDoctrine()->getRepository('AdminBundle:Research')->findAll();
+                    foreach ($research_list as $researchItem) {
+                        $researchId = $this->getDoctrine()->getRepository('AdminBundle:Research')->find($researchItem->getId());
+                        $em->remove($researchId);
+                    }
+                    $em->flush();
+
                     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
                     $reader->setReadDataOnly(true);
                     $spreadsheet = $reader->load($file);
@@ -89,6 +98,15 @@ class FileMappingController extends Controller
         return $this->render('@Admin/FileMapping/fileMapping.html.twig', [
             'add_file_form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/admin/moderation/mapping", name="LoadProductCheckImages")
+     */
+
+    public function LoadProductCheckImages()
+    {
+
     }
 
 }
