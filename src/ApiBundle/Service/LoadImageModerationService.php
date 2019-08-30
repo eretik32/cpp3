@@ -64,6 +64,8 @@ class LoadImageModerationService
 
     /**
      * @param Request $request
+     *
+     * @return int
      */
     public function processRequest(Request $request)
     {
@@ -86,6 +88,8 @@ class LoadImageModerationService
 
         $this->entityManager->persist($imageModeration);
         $this->entityManager->flush();
+
+        return $imageModeration->getId();
     }
 
     /**

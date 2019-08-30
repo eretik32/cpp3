@@ -32,10 +32,10 @@ class ImageModerationController extends AbstractFOSRestController
     /**
      * @SWG\Response(
      *     response=200,
-     *     description="File uploaded successfully",
+     *     description="image moderation id",
      *     @SWG\Schema(
      *        type="object",
-     *        example={"message": "File uploaded successfully"}
+     *        example={"id": "12"}
      *     )
      * )
      * @SWG\Response(
@@ -86,10 +86,10 @@ class ImageModerationController extends AbstractFOSRestController
         $loadImageModerationService = $this->container->get('load_image_moderation');
 
         try {
-            $loadImageModerationService->processRequest($request);
+            $imageModerationId = $loadImageModerationService->processRequest($request);
 
             return new JsonResponse([
-                'message' => 'File uploaded successfully'
+                'id' => $imageModerationId
             ]);
         } catch (NotFoundProductException $exception) {
 

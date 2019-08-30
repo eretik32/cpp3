@@ -9,6 +9,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Swagger\Annotations as SWG;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ProductController extends AbstractFOSRestController
 {
@@ -27,29 +28,81 @@ class ProductController extends AbstractFOSRestController
     }
 
     /**
+     * @SWG\Response(
+     *     response=200,
+     *     description="product id",
+     *     @SWG\Schema(
+     *        type="object",
+     *        example={"id": "11"}
+     *     )
+     * )
+     * @SWG\Response(
+     *     response=423,
+     *     description="Wrong input data",
+     *     @SWG\Schema(
+     *        type="object",
+     *        example={"message": "text message"}
+     *     )
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="title",
+     *     in="query",
+     *     type="string",
+     *     description="product title"
+     * )
+     * @SWG\Parameter(
+     *     name="categoryId",
+     *     in="query",
+     *     type="int",
+     *     description="category id"
+     * )
+     *
      * @SWG\Tag(name="product")
      *
      * @Rest\Post("/api/product/")
      * @param Request $request
-     * @return View
+     * @return JsonResponse
      */
     public function setProductAction(Request $request)
     {
-        $data = new Product;
+        $product = new Product;
 
-        $title = $request->get('title');
-        $category_id = $request->get('category');
-        $category = $this->getDoctrine()->getRepository('CoreBundle:Category')->find($category_id);
+        $title      = $request->get('title', '');
+        $categoryId = $request->get('categoryId', '');
 
-        if (empty($title) || empty($category)) {
-            return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE);
+        $category = $this
+            ->getDoctrine()
+            ->getRepository('CoreBundle:Category')
+            ->find($categoryId);
+
+        if (empty($title)) {
+            return new JsonResponse([
+                'message' => 'Not found title parameter'
+            ], 423);
         }
-        $data->setTitle($title);
-        $data->setCategory($category);
+
+        if (empty($categoryId)) {
+            return new JsonResponse([
+                'message' => 'Not found categoryId parameter'
+            ], 423);
+        }
+
+        if (empty($category)) {
+            return new JsonResponse([
+                'message' => 'Product with this id doesn\'t exists'
+            ], 423);
+        }
+
+        $product->setTitle($title);
+        $product->setCategory($category);
         $em = $this->getDoctrine()->getManager();
-        $em->persist($data);
+        $em->persist($product);
         $em->flush();
-        return new View("product added successfully", Response::HTTP_OK);
+
+        return new JsonResponse([
+            'id' => $product->getId()
+        ]);
     }
 
     /**

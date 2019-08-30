@@ -9,7 +9,7 @@ parameters:
     locale: en
     upload_direcrory: 'uploads'
     allow_file_extensions: ['jpg', 'jpeg', 'png']
-    max_image_size: 200000 # 20 mb
+    max_image_size: 10000000 # 10 mb
 
 framework:
     #esi: ~

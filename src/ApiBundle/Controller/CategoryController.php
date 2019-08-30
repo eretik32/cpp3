@@ -9,6 +9,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Swagger\Annotations as SWG;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CategoryController extends AbstractFOSRestController
 {
@@ -27,26 +28,56 @@ class CategoryController extends AbstractFOSRestController
     }
 
     /**
+     * @SWG\Response(
+     *     response=200,
+     *     description="category id",
+     *     @SWG\Schema(
+     *        type="object",
+     *        example={"id": "24"}
+     *     )
+     * )
+     * @SWG\Response(
+     *     response=423,
+     *     description="Wrong input data",
+     *     @SWG\Schema(
+     *        type="object",
+     *        example={"message": "text message"}
+     *     )
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="title",
+     *     in="query",
+     *     type="string",
+     *     description="category title"
+     * )
+     *
      * @SWG\Tag(name="category")
      *
      * @Rest\Post("/api/category/")
+     *
      * @param Request $request
-     * @return View
+     * @return JsonResponse
      */
     public function setCategoryAction(Request $request)
     {
-        $data = new Category();
-        $category_title = $request->get('category_title');
-
+        $category = new Category();
+        $category_title = $request->get('title');
 
         if (empty($category_title)) {
-            return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE);
+            return new JsonResponse([
+                'message' => 'Not found title parameter'
+            ], 423);
         }
-        $data->setCategoryTitle($category_title);
+
+        $category->setCategoryTitle($category_title);
         $em = $this->getDoctrine()->getManager();
-        $em->persist($data);
+        $em->persist($category);
         $em->flush();
-        return new View("category added successfully", Response::HTTP_OK);
+
+        return new JsonResponse([
+            'id' => $category->getId()
+        ]);
     }
 
     /**
