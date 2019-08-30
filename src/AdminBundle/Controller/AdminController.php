@@ -106,6 +106,11 @@ class AdminController extends AbstractFOSRestController
     //Согласовать модерируемое фото(перенос в одобренные фото)
     public function AddImageAction(Product $product)
     {
+        /**
+         * Продублируем логику
+         */
+
+
         $productId = $product->getId();
         $repositoryModerImg = $this->getDoctrine()->getRepository(ImageModeration::class)->findBy(
             [

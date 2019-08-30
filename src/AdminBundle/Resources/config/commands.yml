@@ -1,0 +1,4 @@
+services:
+    AdminBundle\Command\ApproveAllModerationImageCommand:
+        public: false
+        tags: [console.command]

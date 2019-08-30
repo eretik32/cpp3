@@ -11,9 +11,6 @@
 {% block h1 %}{{ h1 }}{% endblock %}
 {% block breadcrumb %}{{ breadcrumb }}{% endblock %}
 
-
-
-
 {% block content %}
 
 <header id="header" class="clearfix" data-spy="affix" data-offset-top="65">
@@ -581,7 +578,6 @@
                         <hr class="hr">
                         <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             {% for productImage in product %}
-                                {{ dump(productImage) }}
                                 <a href="#" class="product-item">
                                     <img class="preview-img" src="/{{ productImage.pictureUrl }}" alt="img">
                                 </a>
@@ -673,8 +669,3 @@
     <p>Sorry for the inconvenience!</p>
 </div>
 {% endblock %}
-
-
-
-
-

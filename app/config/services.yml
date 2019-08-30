@@ -34,10 +34,6 @@ services:
 #    #     arguments:
 #    #         $someArgument: 'some_value'
 
-    AdminBundle\:
-        resource: '../../src/AdminBundle/*'
-        exclude: '../../src/AdminBundle/{Entity,Repository,Tests}'
-
     AdminBundle\Controller\:
         resource: '../../src/AdminBundle/Controller'
         public: true
