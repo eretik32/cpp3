@@ -15,7 +15,7 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
-
+.idea/workspace.xml
 .idea
 /web/uploads/*
 !web/uploads/.gitkeep
