@@ -540,26 +540,26 @@
 
         <div class="border box container admin-product-item">
             <div class="row product-image-list">
-                {% if productsListResearch is defined %}
-                    {% for productResearch in productsListResearch %}
-                        <div class="container-product">
-                            <div class="block-title-product">
-                                <h2><span class="small-text">Product:</span> {{ productResearch.owner.title }}</h2>
-                            </div>
-                            <hr class="hr">
-                            <div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                {% for ImageResearch in productResearch %}
-                                    <a href="#" class="product-item image-research">
-                                        <input type="checkbox" name="addImage" class="check-image-research">
-                                        <img class="preview-img" src="/{{ ImageResearch.pictureUrl }}" alt="img">
-                                    </a>
-                                {% endfor %}
-                            </div>
-                            <br>
-                            <button class="btn btn-primary research-confirm">Подтвердить</button>
-                        </div>
-                    {% endfor %}
-                {% endif %}
+                {#{% if productsListResearch is defined %}#}
+                    {#{% for productResearch in productsListResearch %}#}
+                        {#<div class="container-product">#}
+                            {#<div class="block-title-product">#}
+                                {#<h2><span class="small-text">Product:</span> {{ productResearch.owner.title }}</h2>#}
+                            {#</div>#}
+                            {#<hr class="hr">#}
+                            {#<div class="product-image col-xl-12 col-lg-12 col-md-12 col-sm-12">#}
+                                {#{% for ImageResearch in productResearch %}#}
+                                    {#<a href="#" class="product-item image-research">#}
+                                        {#<input type="checkbox" name="addImage" class="check-image-research">#}
+                                        {#<img class="preview-img" src="/{{ ImageResearch.pictureUrl }}" alt="img">#}
+                                    {#</a>#}
+                                {#{% endfor %}#}
+                            {#</div>#}
+                            {#<br>#}
+                            {#<button class="btn btn-primary research-confirm">Подтвердить</button>#}
+                        {#</div>#}
+                    {#{% endfor %}#}
+                {#{% endif %}#}
             </div>
         </div>
 

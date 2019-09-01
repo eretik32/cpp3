@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AdminBundle\Entity\RecearchImage;
 use AdminBundle\Entity\Research;
 use AdminBundle\Forms\LoadProductListFormType;
 use AdminBundle\Forms\Model\LoadProductListModel;
@@ -32,13 +33,23 @@ class FileMappingController extends Controller
             if (in_array($extension, $file_mimes)) {
 
                 if ('xlsx' == $extension) {
-                    //Очищаем таблицу Research в БД
+
                     $em = $this->getDoctrine()->getManager();
+
+                    //Очищаем таблицу Research в БД
                     $research_list = $this->getDoctrine()->getRepository('AdminBundle:Research')->findAll();
                     foreach ($research_list as $researchItem) {
                         $researchId = $this->getDoctrine()->getRepository('AdminBundle:Research')->find($researchItem->getId());
                         $em->remove($researchId);
                     }
+                    //Очищаем таблицу RecearchImage в БД
+                    $researchImages = $this->getDoctrine()->getRepository('AdminBundle:RecearchImage')->findAll();
+                    foreach ($researchImages as $researchImage) {
+                        $em->remove($researchImage);
+                    }
+
+
+
                     $em->flush();
 
                     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
@@ -60,15 +71,26 @@ class FileMappingController extends Controller
                                 ->getDoctrine()
                                 ->getRepository('CoreBundle:Product')
                                 ->findByProductName($prodTitle->getValue());
-                            foreach ($products as $productTitle) {
+                            foreach ($products as $product) {
                                 $data = new Research();
-                                $data->setTitle($productTitle->getTitle());
-                                foreach ($productTitle->getImages() as $image) {
+                                $data->setTitle($product->getTitle());
+                                foreach ($product->getImages() as $image) {
                                     $data->addImage($image);
                                 }
                                 $em = $this->getDoctrine()->getManager();
                                 $em->persist($data);
-                               $em->flush();
+                                $em->flush();
+
+                            //Создание сушьности RecearchImage с названием продукта и картинок относящихся к нему на основе выборки
+                                foreach ($product->getImages() as $image) {
+                                    $dataRecearchImage = new RecearchImage();
+
+                                    // id recearch , id images
+                                    $dataRecearchImage->setIdProduct($product->getId());
+                                    $dataRecearchImage->setIdImage($image->getId());
+                                    $em->persist($dataRecearchImage);
+                                }
+                                $em->flush();
                             }
                         }
                     }
@@ -83,15 +105,22 @@ class FileMappingController extends Controller
                 ]);
             }
 
-            $productsListResearch = $this->getDoctrine()
-                ->getRepository('AdminBundle:Research')
-                ->findAll();
-            foreach ($productsListResearch as $productSearch) {
-                $allProducts[] = $productSearch->getImages();
-            }
+//            $productsListResearch = $this->getDoctrine()
+//                ->getRepository('AdminBundle:Research')
+//                ->findAll();
+
+            $productsListResearchImage = $this->getDoctrine()
+                ->getRepository('AdminBundle:RecearchImage')
+                ->findAllRecearchImage();
+            dump($productsListResearchImage);
+
+
+//            foreach ($productsListResearch as $productSearch) {
+//                $allProducts[] = $productSearch->getImages();
+//            }
             return $this->render('@Admin/FileMapping/fileMapping.html.twig', [
                 'add_file_form' => $form->createView(),
-                'productsListResearch' => $allProducts,
+//                'productsListResearch' => $allProducts,
             ]);
         }
 
