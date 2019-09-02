@@ -1,0 +1,38 @@
+<?php
+
+namespace AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RecearchImage
+ *
+ * @ORM\Table(name="recearch_image")
+ * @ORM\Entity(repositoryClass="AdminBundle\Repository\RecearchImageRepository")
+ */
+class RecearchImage
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idProduct", type="integer")
+     */
+    private $idProduct;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idImage", type="integer")
+     */
+    private $idImage;
+    
+}
